@@ -10,118 +10,118 @@ const ROUND_1_QUESTIONS = [
     explanation: "Kevin De Bruyne is the creative playmaker for Belgium and Manchester City, famously wearing the number 7 jersey for his national team."
   },
   {
-    question: "Which country hosted the first-ever FIFA Men's World Cup in 1930?",
-    options: ["Italy", "Uruguay", "Argentina", "Brazil"],
-    correctIndex: 1,
-    explanation: "Uruguay hosted and won the inaugural FIFA World Cup in 1930, defeating Argentina 4-2 in the final in Montevideo."
-  },
-  {
-    question: "Which nation has played in every single FIFA Men's World Cup tournament since 1930?",
-    options: ["Germany", "Italy", "Argentina", "Brazil"],
-    correctIndex: 3,
-    explanation: "Brazil is the only country to have qualified for and participated in all 22 World Cup tournaments."
-  },
-  {
-    question: "Which country won the 2022 Men's FIFA World Cup in Qatar?",
-    options: ["France", "Brazil", "Argentina", "Croatia"],
+    question: "Who is the oldest goalkeeper to have ever played in a FIFA World Cup tournament?",
+    options: ["Faryd Mondragón (Colombia)", "Dino Zoff (Italy)", "Essam El-Hadary (Egypt)", "Peter Shilton (England)"],
     correctIndex: 2,
-    explanation: "Argentina won the 2022 World Cup after defeating France in a thrilling final match."
+    explanation: "Egypt's Essam El-Hadary became the oldest goalkeeper and player in World Cup history at 45 years and 161 days old when he played against Saudi Arabia in the 2018 tournament."
   },
   {
-    question: "Who is the legendary captain who led Argentina to victory in the 2022 World Cup?",
-    options: ["Cristiano Ronaldo", "Lionel Messi", "Neymar Jr", "Kylian Mbappé"],
+    question: "How many countries are hosting the 2026 FIFA World Cup?",
+    options: ["1", "2", "3", "4"],
+    correctIndex: 2,
+    explanation: "The 2026 FIFA World Cup is jointly hosted by three countries: Canada, Mexico, and the United States."
+  },
+  {
+    question: "How many teams are participating in the 2026 FIFA World Cup?",
+    options: ["32", "40", "48", "64"],
+    correctIndex: 2,
+    explanation: "The 2026 tournament features an expanded format with 48 participating teams, up from the previous 32-team format."
+  },
+  {
+    question: "How many matches in total will be played in the 2026 FIFA World Cup?",
+    options: ["64", "80", "96", "104"],
+    correctIndex: 3,
+    explanation: "Due to the expanded 48-team format, the 2026 World Cup will feature a record-breaking 104 matches."
+  },
+  {
+    question: "Who was the official mascot for the 1998 FIFA World Cup held in France?",
+    options: ["Footix", "Zakumi", "Fuleco", "Ciao"],
+    correctIndex: 0,
+    explanation: "Footix, a blue cockerel representing France's national emblem, was the popular official mascot of the 1998 World Cup."
+  },
+  {
+    question: "Which nation has hosted (or co-hosted) the FIFA World Cup the most times?",
+    options: ["Brazil", "Germany", "Mexico", "Italy"],
+    correctIndex: 2,
+    explanation: "Mexico has hosted the tournament a record three times (1970, 1986, and as a co-host in 2026)."
+  },
+  {
+    question: "How many players have scored a hat-trick in a FIFA World Cup final match?",
+    options: ["1", "2", "3", "4"],
     correctIndex: 1,
-    explanation: "Lionel Messi captained the Argentina team, scoring 7 goals and winning the Golden Ball award."
+    explanation: "Only two players have scored a hat-trick in a Men's World Cup final: Geoff Hurst (England in 1966) and Kylian Mbappé (France in 2022)."
   },
   {
-    question: "Which country has won the most FIFA Men's World Cup titles in history?",
+    question: "Which country has won the most FIFA World Cup titles in history?",
     options: ["Germany", "Italy", "Brazil", "Argentina"],
     correctIndex: 2,
-    explanation: "Brazil has won a record 5 World Cup trophies (1958, 1962, 1970, 1994, and 2002)."
+    explanation: "Brazil holds the record with five FIFA World Cup trophies (1958, 1962, 1970, 1994, and 2002)."
   },
   {
-    question: "In which country was the 2010 FIFA World Cup held, the first one in Africa?",
-    options: ["Egypt", "Morocco", "Nigeria", "South Africa"],
+    question: "Which country has played in every single FIFA World Cup tournament?",
+    options: ["Germany", "Italy", "Argentina", "Brazil"],
     correctIndex: 3,
-    explanation: "South Africa hosted the historic 2010 tournament, welcoming fans with vuvuzela horns."
+    explanation: "Brazil is the only country to have qualified for and participated in all 22 FIFA World Cup tournaments since the inaugural tournament in 1930."
   },
   {
-    question: "Which player scored the famous 'Hand of God' goal in 1986?",
-    options: ["Pelé", "Diego Maradona", "Gary Lineker", "Zico"],
-    correctIndex: 1,
-    explanation: "Diego Maradona scored the controversial 'Hand of God' goal and the spectacular 'Goal of the Century' in the same match against England in 1986."
-  },
-  {
-    question: "Which country did France defeat in the final to win the 2018 FIFA World Cup?",
-    options: ["Croatia", "Belgium", "England", "Argentina"],
-    correctIndex: 0,
-    explanation: "France won their second World Cup title by defeating Croatia 4-2 in an action-packed final in Moscow."
-  },
-  {
-    question: "Who won the Golden Boot (top scorer) at the 2022 FIFA World Cup in Qatar?",
-    options: ["Lionel Messi", "Kylian Mbappé", "Olivier Giroud", "Julián Álvarez"],
-    correctIndex: 1,
-    explanation: "France's Kylian Mbappé won the Golden Boot in 2022 by scoring 8 goals, including a hat-trick in the final."
-  },
-  {
-    question: "Which team did Spain defeat in the 2010 World Cup final to win their first title?",
-    options: ["Germany", "Netherlands", "Uruguay", "France"],
-    correctIndex: 1,
-    explanation: "Spain defeated the Netherlands 1-0 in extra time through an Andrés Iniesta goal to win their historic first title."
-  },
-  {
-    question: "Which player scored the winning goal for Germany in the 2014 World Cup final against Argentina?",
-    options: ["Mario Götze", "Thomas Müller", "Bastian Schweinsteiger", "Miroslav Klose"],
-    correctIndex: 0,
-    explanation: "Substitute Mario Götze scored a stunning volley in the 113th minute of extra time to secure a 1-0 win for Germany."
-  },
-  {
-    question: "Which goalkeeper won the Golden Glove award at the 2022 FIFA World Cup?",
-    options: ["Hugo Lloris", "Emiliano Martínez", "Yassine Bounou", "Dominik Livaković"],
-    correctIndex: 1,
-    explanation: "Argentina's Emiliano Martínez won the Golden Glove after crucial penalty shootout saves and a legendary last-second save in the final."
-  },
-  {
-    question: "Who is the youngest player to ever score in a FIFA Men's World Cup match?",
-    options: ["Pelé", "Kylian Mbappé", "Lionel Messi", "Gavi"],
-    correctIndex: 0,
-    explanation: "Pelé was just 17 years and 239 days old when he scored against Wales in the 1958 World Cup quarterfinals."
-  },
-  {
-    question: "What color cards were introduced to the World Cup for the first time in 1970?",
-    options: ["Green and Blue", "Red and Yellow", "White and Black", "Blue and Orange"],
-    correctIndex: 1,
-    explanation: "Yellow and red cards were introduced in the 1970 World Cup in Mexico to make disciplinary actions clearer across language barriers."
-  },
-  {
-    question: "Which African nation became the first to reach a World Cup semi-final in 2022?",
-    options: ["Senegal", "Cameroon", "Ghana", "Morocco"],
+    question: "Which country has reached the FIFA World Cup final the most times without ever winning the title?",
+    options: ["Croatia", "Sweden", "Hungary", "Netherlands"],
     correctIndex: 3,
-    explanation: "Morocco made history in Qatar 2022 by defeating Spain and Portugal to become the first African nation in a semi-final."
+    explanation: "The Netherlands has reached the World Cup final three times (1974, 1978, and 2010) but lost all three, holding the record for the most final appearances without a victory."
   },
   {
-    question: "Which player scored a hat-trick in the 2022 FIFA World Cup final?",
-    options: ["Lionel Messi", "Kylian Mbappé", "Olivier Giroud", "Angel Di Maria"],
+    question: "Who is the only player to have won three FIFA World Cup trophies as a player?",
+    options: ["Pelé", "Diego Maradona", "Ronaldo Nazário", "Franz Beckenbauer"],
+    correctIndex: 0,
+    explanation: "The legendary Brazilian forward Pelé won the World Cup in 1958, 1962, and 1970, making him the only player to win the tournament three times."
+  },
+  {
+    question: "Which country hosted the 1994 FIFA World Cup, which concluded with the first-ever penalty shootout in a final?",
+    options: ["Italy", "United States", "France", "Japan"],
     correctIndex: 1,
-    explanation: "France's Kylian Mbappé scored a hat-trick in the historic 2022 final against Argentina, although Argentina ultimately won on penalties."
+    explanation: "The 1994 World Cup was hosted by the United States and was decided by a penalty shootout in the final, where Brazil defeated Italy."
   },
   {
-    question: "In what year did England win their only FIFA Men's World Cup?",
-    options: ["1958", "1962", "1966", "1970"],
+    question: "Who won the Best Young Player award at the 2018 FIFA World Cup in Russia?",
+    options: ["Kylian Mbappé", "Luka Modrić", "Paul Pogba", "Harry Kane"],
+    correctIndex: 0,
+    explanation: "France's Kylian Mbappé won the Best Young Player award in 2018 after scoring four goals in the tournament, including one in the final."
+  },
+  {
+    question: "Which country won the 2010 FIFA World Cup, winning all four of their knockout stage matches by a score of 1-0?",
+    options: ["Germany", "Netherlands", "Spain", "Argentina"],
     correctIndex: 2,
-    explanation: "England won the tournament on home soil in 1966, famously defeating West Germany 4-2 in extra time at Wembley Stadium."
+    explanation: "Spain won their first World Cup in 2010 with a defensive masterclass, defeating Portugal, Paraguay, Germany, and the Netherlands all by a score of 1-0."
   },
   {
-    question: "Which country won the FIFA Men's World Cup on home soil in 1998?",
-    options: ["France", "Brazil", "Italy", "Croatia"],
-    correctIndex: 0,
-    explanation: "France hosted and won the 1998 World Cup, defeating Brazil 3-0 in the final at the Stade de France."
+    question: "Under which continental football confederation does Uzbekistan play?",
+    options: ["UEFA", "AFC", "CAF", "OFC"],
+    correctIndex: 1,
+    explanation: "Uzbekistan belongs to the Asian Football Confederation (AFC), having officially joined it in 1994."
   },
   {
-    question: "Which country hosted the 2002 FIFA World Cup, the first to be co-hosted by two nations?",
-    options: ["Japan & South Korea", "USA & Canada", "Spain & Portugal", "Belgium & Netherlands"],
+    question: "Which player scored a famous 'flying header' goal for the Netherlands against Spain in the 2014 World Cup?",
+    options: ["Arjen Robben", "Robin van Persie", "Wesley Sneijder", "Dirk Kuyt"],
+    correctIndex: 1,
+    explanation: "Robin van Persie scored a spectacular diving header from a long-range pass, helping the Netherlands defeat Spain 5-1 in the group stage."
+  },
+  {
+    question: "Which nation won the 1954 FIFA World Cup in a match famously known as the 'Miracle of Bern'?",
+    options: ["West Germany", "Hungary", "Austria", "Uruguay"],
     correctIndex: 0,
-    explanation: "The 2002 tournament was co-hosted by Japan and South Korea, which was also the first World Cup held in Asia."
+    explanation: "West Germany defeated the legendary, heavily favored Hungarian team 3-2 in the 1954 final, a historic upset known as the 'Miracle of Bern'."
+  },
+  {
+    question: "Who is the all-time leading FIFA World Cup goalscorer for England, with 10 goals?",
+    options: ["Harry Kane", "Wayne Rooney", "Gary Lineker", "Bobby Charlton"],
+    correctIndex: 2,
+    explanation: "Gary Lineker scored 10 goals across the 1986 and 1990 tournaments, holding the record for the most World Cup goals scored by an English player."
+  },
+  {
+    question: "Which team won the 2006 FIFA World Cup final in a penalty shootout after a 1-1 draw in extra time?",
+    options: ["Germany", "France", "Brazil", "Italy"],
+    correctIndex: 3,
+    explanation: "Italy defeated France 5-3 in a penalty shootout in 2006 to claim their fourth World Cup title, in a match famously remembered for Zinedine Zidane's red card."
   }
 ];
 

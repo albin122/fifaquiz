@@ -1,38 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FIFA Men's World Cup Presenter Quiz</title>
-  <meta name="description" content="A premium FIFA Men's World Cup Quiz interface optimized for Quiz Masters and Hosts to present to students/teams on projectors or shared screens.">
+  <meta name="description"
+    content="A premium FIFA Men's World Cup Quiz interface optimized for Quiz Masters and Hosts to present to students/teams on projectors or shared screens.">
   <meta name="keywords" content="FIFA, World Cup, Quiz, Football, Presenter, Classroom, Scoreboard, Trivia">
   <meta name="author" content="FIFA Quiz Team">
-  
+
   <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet">
+
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  
+
   <!-- Presenter Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=lighttheme">
 </head>
+
 <body class="presenter-mode">
   <!-- Canvas for Confetti Effects -->
   <canvas id="confetti-canvas"></canvas>
 
   <div id="app">
+    <!-- Floating Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+      <i data-lucide="moon" class="theme-icon moon-icon"></i>
+      <i data-lucide="sun" class="theme-icon sun-icon"></i>
+    </button>
+
     <!-- Stadium Glow Effects in Background -->
     <div class="stadium-glow glow-left"></div>
     <div class="stadium-glow glow-right"></div>
     <div class="stadium-grid"></div>
 
     <div class="container">
-      
+
       <!-- ================= LANDING SETUP SCREEN ================= -->
       <section id="landing-page" class="section active">
+
+
         <header class="hero-header">
           <div class="school-branding">
             <div class="school-badge">
@@ -41,7 +54,10 @@
             </div>
             <div class="presents-text">presents</div>
           </div>
-          <h1>WORLD CUP <span class="highlight">QUIZ</span></h1>
+          <div class="logo-title-container">
+            <img src="images/logo.png" class="app-logo" alt="FIFA 2026 Logo">
+            <h1>WORLD CUP <span class="highlight">QUIZ</span></h1>
+          </div>
         </header>
 
         <!-- Configuration Panel -->
@@ -50,7 +66,7 @@
             <i data-lucide="users" class="icon-gold"></i>
             <h2>Group Scoreboard Setup</h2>
           </div>
-          
+
           <div class="config-controls">
             <div class="form-group">
               <label for="num-teams-select">Number of Groups:</label>
@@ -60,7 +76,7 @@
                 <button type="button" class="btn-qty" id="btn-qty-inc">+</button>
               </div>
             </div>
-            
+
             <div class="form-group">
               <label>Edit Group Names:</label>
               <div class="team-inputs-grid" id="team-inputs-container">
@@ -74,14 +90,15 @@
           <!-- Round 1 Card -->
           <div class="round-card" id="btn-select-round1" tabindex="0" role="button">
             <div class="round-card-content">
-              <div class="round-badge gold-gradient">ROUND 1</div>
+              <div class="round-badge green-gradient">ROUND 1</div>
               <h2>First Round</h2>
               <div class="round-meta">
                 <div class="meta-item"><i data-lucide="help-circle"></i> 20 Questions</div>
                 <div class="meta-item"><i data-lucide="timer"></i> 30s Countdown</div>
                 <div class="meta-item"><i data-lucide="award"></i> Moderate-Easy Level</div>
               </div>
-              <p class="round-desc">Kick off with 20 moderate-easy questions covering World Cup legends, iconic finals, and host nations.</p>
+              <p class="round-desc">Kick off with 20 moderate-easy questions covering World Cup legends, iconic finals,
+                and host nations.</p>
               <button class="btn btn-primary">
                 <span>Start First Round</span>
                 <i data-lucide="play"></i>
@@ -100,7 +117,8 @@
                 <div class="meta-item"><i data-lucide="timer"></i> 30s Countdown</div>
                 <div class="meta-item"><i data-lucide="award"></i> Challenging Level</div>
               </div>
-              <p class="round-desc">End your quiz campaign with 15 challenging questions testing co-hosting stats, historic records, and matching facts.</p>
+              <p class="round-desc">End your quiz campaign with 15 challenging questions testing co-hosting stats,
+                historic records, and matching facts.</p>
               <button class="btn btn-primary gold-btn">
                 <span>Start Final Round</span>
                 <i data-lucide="zap"></i>
@@ -112,27 +130,28 @@
 
         <footer class="landing-footer">
           <p>© 2026 FIFA Men's World Cup Quiz | Made by GIGI VARUGHESE</p>
-          <p style="margin-top: 0.35rem; font-size: 0.75rem; opacity: 0.6;">Optimized for classroom screens & projectors.</p>
+          <p style="margin-top: 0.35rem; font-size: 0.75rem; opacity: 0.6;">Optimized for classroom screens &amp; projectors.</p>
         </footer>
       </section>
 
       <!-- ================= PRESENTATION QUIZ SCREEN ================= -->
       <section id="quiz-page" class="section">
-        
+
         <div class="presenter-quiz-layout">
           <!-- Main Question Area -->
           <div class="main-presenter-area">
             <div class="quiz-school-header">ST. MARY'S HIGH SCHOOL, ANIKAD</div>
-            
+
             <!-- Quiz Tracker Header -->
             <div class="quiz-header card">
               <div class="quiz-header-top">
                 <div class="question-tracker">
                   <span class="label">Question</span>
-                  <span class="value"><span id="current-question-num">1</span><span class="total">/<span id="total-questions-num">20</span></span></span>
+                  <span class="value"><span id="current-question-num">1</span><span class="total">/<span
+                        id="total-questions-num">20</span></span></span>
                 </div>
                 <div class="round-indicator-badge" id="quiz-round-indicator">First Round</div>
-                
+
                 <!-- Circular countdown timer -->
                 <div class="timer-container">
                   <svg class="timer-svg" viewBox="0 0 80 80">
@@ -149,7 +168,7 @@
 
             <!-- Question and Options Area -->
             <div class="question-container card">
-              
+
               <!-- Question Image Wrapper -->
               <div id="question-image-wrapper" class="question-image-wrapper hidden">
                 <img id="question-img" src="" alt="Question Image">
@@ -157,7 +176,7 @@
               </div>
 
               <h2 class="question-text" id="question-text">Question Loading...</h2>
-              
+
               <!-- Blank screen / click to reveal indicator -->
               <div class="hidden-options-placeholder" id="options-placeholder">
                 <i data-lucide="eye-off" class="icon-pulse"></i>
@@ -178,6 +197,10 @@
               <p id="explanation-text"></p>
             </div>
 
+          </div>
+
+          <!-- Presenter Scoreboard Sidebar -->
+          <aside class="presenter-sidebar">
             <!-- Host Controls -->
             <div class="host-controls-panel card">
               <div class="host-controls-label">
@@ -203,11 +226,6 @@
                 <span>Quit</span>
               </button>
             </div>
-
-          </div>
-
-          <!-- Presenter Scoreboard Sidebar -->
-          <aside class="presenter-sidebar">
             <div class="scoreboard-widget card">
               <div class="scoreboard-header">
                 <i data-lucide="trophy" class="icon-gold"></i>
@@ -218,7 +236,7 @@
               </div>
               <div class="scoreboard-tip">
                 <p><strong>Scoring:</strong> Correct: +10 pts | Incorrect: 0 pts</p>
-                <p style="margin-top: 0.35rem; opacity: 0.7; font-size: 0.7rem;">Use +10 to award points, and -10 to correct mistakes.</p>
+                <p style="margin-top: 0.35rem; opacity: 0.7; font-size: 0.7rem;">Use +10 to award points.</p>
               </div>
             </div>
           </aside>
@@ -234,7 +252,7 @@
           </div>
           <h1>Final Results</h1>
           <p class="subtitle">Congratulations to all players! Here is the final leaderboard for this round.</p>
-          
+
           <!-- Final Presenter Leaderboard -->
           <div class="final-leaderboard-container">
             <div class="final-leaderboard-list" id="final-leaderboard-list">
@@ -260,12 +278,14 @@
             <i data-lucide="clipboard-list" class="icon-gold"></i>
             <h2>Quiz Master Answer Sheet</h2>
           </div>
-          
+
           <div class="review-cards-list" id="review-cards-container">
             <!-- Review items will be generated dynamically -->
           </div>
         </div>
       </section>
+
+
 
     </div>
   </div>
@@ -283,4 +303,5 @@
   <script src="js/questions.js"></script>
   <script src="js/app.js"></script>
 </body>
+
 </html>

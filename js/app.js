@@ -1,5 +1,12 @@
 // FIFA Men's World Cup Quiz - Presenter Mode Logic
 
+// Prevent crashes if Lucide CDN is offline
+if (typeof window.lucide === 'undefined') {
+  window.lucide = {
+    createIcons: () => { console.warn("Lucide CDN is offline. Icons fallback activated."); }
+  };
+}
+
 // ================= 1. APPLICATION STATE ================= //
 let gameState = {
   currentRound: null,         // 'round1' or 'round2'
@@ -14,6 +21,7 @@ let gameState = {
   isTiebreakerMode: false,    // Sudden death tiebreaker flag
   tiebreakerIndex: 0          // Active tiebreaker question index
 };
+
 
 // Audio files
 const countdownAudio = new Audio('countdown music.mpeg');
@@ -79,7 +87,8 @@ const DOM = {
   reviewCardsContainer: document.getElementById('review-cards-container'),
   
   // Canvas
-  confettiCanvas: document.getElementById('confetti-canvas')
+  confettiCanvas: document.getElementById('confetti-canvas'),
+  themeToggle: document.getElementById('theme-toggle')
 };
 
 // Default Group Names
@@ -87,6 +96,9 @@ const DEFAULT_GROUP_NAMES = ["Group 1", "Group 2", "Group 3", "Group 4", "Group 
 
 // ================= 3. INITS & EVENT LISTENERS ================= //
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize theme
+  initTheme();
+
   // Initialize Lucide icons
   lucide.createIcons();
   
@@ -118,6 +130,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Resize handler for canvas
   window.addEventListener('resize', resizeCanvas);
   resizeCanvas();
+
+  // Theme Switcher Event Listener
+  if (DOM.themeToggle) {
+    DOM.themeToggle.addEventListener('click', toggleTheme);
+  }
 });
 
 // ================= 4. TEAM CONFIGURATION ================= //
@@ -217,6 +234,7 @@ function startPresenterQuiz(roundKey) {
   
   // Parse team names from inputs and reset scores
   gameState.teams = [];
+  lastScoreAdjustTimes = {};
   const inputs = DOM.teamInputsContainer.querySelectorAll('.team-input');
   inputs.forEach((inp, index) => {
     const name = inp.value.trim() || `Group ${index + 1}`;
@@ -266,6 +284,7 @@ function retryPresenterRound() {
     
     // Retain previous team names, reset scores to 0
     gameState.teams.forEach(t => t.score = 0);
+    lastScoreAdjustTimes = {};
     gameState.currentIndex = 0;
     gameState.stage = 'LOADED';
     
@@ -555,7 +574,6 @@ function renderSidebarScoreboard() {
         <span class="team-score" id="sidebar-score-${index}">0</span>
       </div>
       <div class="score-adj-buttons">
-        <button class="btn-adj minus" title="Correct Mistake (-10)">-10</button>
         <button class="btn-adj plus" title="Add 10 Points">+10</button>
       </div>
     `;
@@ -566,7 +584,6 @@ function renderSidebarScoreboard() {
     
     // Event Listeners for point adjustments
     row.querySelector('.plus').addEventListener('click', () => adjustTeamScore(index, 10));
-    row.querySelector('.minus').addEventListener('click', () => adjustTeamScore(index, -10));
     
     DOM.sidebarScoreboardContainer.appendChild(row);
   });
@@ -577,7 +594,16 @@ function renderSidebarScoreboard() {
   }
 }
 
+// Keep track of the last score adjustment time per team to prevent double-clicks/ghost-clicks
+let lastScoreAdjustTimes = {};
+
 function adjustTeamScore(teamIdx, amount) {
+  const now = Date.now();
+  if (lastScoreAdjustTimes[teamIdx] && (now - lastScoreAdjustTimes[teamIdx] < 250)) {
+    return;
+  }
+  lastScoreAdjustTimes[teamIdx] = now;
+
   gameState.teams[teamIdx].score += amount;
   
   if (gameState.teams[teamIdx].score < 0) {
@@ -880,4 +906,19 @@ function updateNextQuestionButton() {
       lucide.createIcons();
     }
   }
+}
+
+// ================= THEME SWITCHER LOGIC ================= //
+function initTheme() {
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-theme');
+  } else {
+    document.body.classList.remove('light-theme');
+  }
+}
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light-theme');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
 }
