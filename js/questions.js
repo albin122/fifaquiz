@@ -83,7 +83,7 @@ const ROUND_1_QUESTIONS = [
   },
   {
     question: "Who won the Best Young Player award at the 2018 FIFA World Cup in Russia?",
-    options: ["Kylian Mbappé", "Luka Modrić", "Paul Pogba", "Harry Kane"],
+    options: ["Kylian Mbappé", "Benjamin Pavard", "Youri Tielemans", "Julian Brandt"],
     correctIndex: 0,
     explanation: "France's Kylian Mbappé won the Best Young Player award in 2018 after scoring four goals in the tournament, including one in the final."
   },
