@@ -127,94 +127,125 @@ const ROUND_1_QUESTIONS = [
 
 const ROUND_2_QUESTIONS = [
   {
-    question: "Who is the all-time top goalscorer in Men's FIFA World Cup history, with 16 goals?",
-    options: ["Pelé", "Miroslav Klose", "Ronaldo Nazário", "Gerd Müller"],
+    question: "Which stadium is scheduled to host the 2026 FIFA World Cup Final?",
+    options: ["Estadio Azteca", "MetLife Stadium", "SoFi Stadium", "AT&T Stadium"],
     correctIndex: 1,
-    explanation: "Germany's Miroslav Klose scored 16 goals across four World Cup tournaments (2002, 2006, 2010, and 2014) to claim the record."
+    explanation: "MetLife Stadium in East Rutherford, New Jersey, has been chosen to host the final match of the 2026 FIFA World Cup on July 19, 2026."
   },
   {
-    question: "Who scored two headed goals for France in their 3-0 victory against Brazil in the 1998 World Cup final?",
-    options: ["Zinedine Zidane", "Thierry Henry", "Emmanuel Petit", "Didier Deschamps"],
-    correctIndex: 0,
-    explanation: "Zinedine Zidane scored two header goals from corner kicks in the first half of the 1998 final, earning France their first title."
-  },
-  {
-    question: "Which player won the Golden Boot (top scorer) at the 2014 World Cup in Brazil with 6 goals?",
-    options: ["James Rodríguez", "Thomas Müller", "Lionel Messi", "Neymar Jr"],
-    correctIndex: 0,
-    explanation: "Colombia's James Rodríguez won the Golden Boot in 2014 by scoring 6 goals in just 5 matches."
-  },
-  {
-    question: "Which player has scored the most goals in a single FIFA Men's World Cup tournament?",
-    options: ["Gerd Müller", "Just Fontaine", "Pelé", "Sandor Kocsis"],
+    question: "What is the maximum number of matches the World Cup champion can play in the 2026 format?",
+    options: ["7", "8", "9", "10"],
     correctIndex: 1,
-    explanation: "France's Just Fontaine scored an incredible 13 goals in just 6 games during the 1958 World Cup in Sweden."
+    explanation: "With the expansion of the tournament to 48 teams, the champion will play 8 matches (3 group matches and 5 knockout matches) instead of the previous 7."
   },
   {
-    question: "Which country became the first Asian nation to reach a World Cup semi-final in 2002?",
-    options: ["South Korea", "Japan", "Saudi Arabia", "Australia"],
-    correctIndex: 0,
-    explanation: "South Korea reached the semi-finals on home soil in 2002, recording historic wins over Italy and Spain."
-  },
-  {
-    question: "Which team did Italy defeat in the semi-finals of the 2006 World Cup with two dramatic extra-time goals?",
-    options: ["Germany", "France", "Ukraine", "Australia"],
-    correctIndex: 0,
-    explanation: "Italy defeated hosts Germany 2-0 in extra time with dramatic late goals from Fabio Grosso and Alessandro Del Piero in Dortmund."
-  },
-  {
-    question: "Which team has finished in the top three of the World Cup the most times without ever winning the title?",
-    options: ["Netherlands", "Croatia", "Sweden", "Poland"],
-    correctIndex: 0,
-    explanation: "The Netherlands finished 2nd in 1974, 1978, 2010, and 3rd in 2014, placing in the top three 4 times without winning."
-  },
-  {
-    question: "Who is the only person to win the World Cup twice as a player (1958, 1962) and once as a manager (1970)?",
-    options: ["Franz Beckenbauer", "Mário Zagallo", "Didier Deschamps", "Pelé"],
+    question: "Which team defeated Germany 2–1 in Group E?",
+    options: ["Ivory Coast", "Ecuador", "Curacao", "Japan"],
     correctIndex: 1,
-    explanation: "Mário Zagallo won twice as a player (1958, 1962), managed the legendary 1970 Brazil team to victory, and was assistant manager in 1994."
+    explanation: "Ecuador defeated Germany 2-1 in a highly contested Group E matchup."
   },
   {
-    question: "Who is the only manager to lead a country to two consecutive FIFA Men's World Cup titles?",
-    options: ["Vittorio Pozzo", "Carlos Bilardo", "Helmut Schön", "Enzo Bearzot"],
-    correctIndex: 0,
-    explanation: "Vittorio Pozzo led Italy to consecutive World Cup triumphs in 1934 and 1938, a feat unmatched by any other manager."
+    question: "Which match ended 5–1 in Group F?",
+    options: ["Japan vs Tunisia", "Netherlands vs Sweden", "Sweden vs Tunisia", "Netherlands vs Japan"],
+    correctIndex: 1,
+    explanation: "Netherlands put on a dominant display to defeat Sweden 5-1 in Group F."
   },
   {
-    question: "In what country was the 1986 World Cup held after original hosts Colombia declared they could not host it?",
-    options: ["Mexico", "Argentina", "Brazil", "Spain"],
-    correctIndex: 0,
-    explanation: "Mexico stepped in to host the 1986 tournament after Colombia declared they could not afford to host under FIFA's expanded requirements."
+    question: "Which co-host nation won all three of its Group A matches?",
+    options: ["Canada", "Mexico", "United States", "None"],
+    correctIndex: 1,
+    explanation: "Mexico won all three of their group matches in Group A, putting on a spectacular performance on home soil."
   },
   {
-    question: "Which player won the Golden Ball (best player) at the 2018 FIFA World Cup in Russia?",
-    options: ["Luka Modrić", "Eden Hazard", "Antoine Griezmann", "Kylian Mbappé"],
-    correctIndex: 0,
-    explanation: "Luka Modrić won the Golden Ball after captaining Croatia to their historic first-ever World Cup final."
+    question: "Which country competing in the FIFA World Cup 26 has an official national anthem that contains no lyrics or words?",
+    options: ["Tunisia", "Spain", "Paraguay", "Bosnia and Herzegovina"],
+    correctIndex: 1,
+    explanation: "Spain's national anthem, 'La Marcha Real' (The Royal March), is one of the few national anthems in the world that has no official lyrics."
   },
   {
-    question: "What was the name of the official match ball for the 2022 FIFA World Cup in Qatar?",
-    options: ["Jabulani", "Telstar", "Al Rihla", "Brazuca"],
+    question: "Who scored the fastest goal of the 2022 World Cup knockout stage against Morocco?",
+    options: ["Olivier Giroud", "Theo Hernández", "Kylian Mbappé", "Antoine Griezmann"],
+    correctIndex: 1,
+    explanation: "Theo Hernández scored for France after just 4 minutes and 39 seconds in the semi-final match against Morocco."
+  },
+  {
+    question: "Which national team is known as the 'Samurai Blue' and famously defeated Germany in the 2022 World Cup?",
+    options: ["South Korea", "Japan", "Saudi Arabia", "Uzbekistan"],
+    correctIndex: 1,
+    explanation: "Japan's national team, nicknamed the Samurai Blue, defeated Germany 2-1 in their opening match of the 2022 World Cup."
+  },
+  {
+    question: "Which team became the first African nation to reach a FIFA World Cup semifinal?",
+    options: ["Senegal", "Cameroon", "Morocco", "Ghana"],
     correctIndex: 2,
-    explanation: "The official match ball was named 'Al Rihla', which translates to 'The Journey' in Arabic, inspired by Qatar's culture, architecture, and flag."
+    explanation: "Morocco became the first African nation to ever reach a World Cup semifinal after defeating Portugal in the quarterfinals of the 2022 tournament."
   },
   {
-    question: "Which player scored the fastest goal in World Cup history, netting after just 11 seconds in 2002?",
-    options: ["Hakan Şükür", "Clint Dempsey", "Bryan Robson", "Bernard Lacombe"],
-    correctIndex: 0,
-    explanation: "Turkey's Hakan Şükür scored in the 11th second of the third-place match against South Korea in 2002."
+    question: "Which team scored the 173rd goal that made the 2026 World Cup the highest-scoring tournament in history?",
+    options: ["Canada", "Mexico", "United States", "Panama"],
+    correctIndex: 2,
+    explanation: "United States defender Auston Trusty scored the historic 173rd goal of the 2026 tournament, breaking the record for most total goals in a single World Cup."
   },
   {
-    question: "Which nation did Spain defeat 1-0 in the semi-finals of the 2010 World Cup thanks to a header from Carles Puyol?",
-    options: ["Germany", "Portugal", "Paraguay", "Chile"],
-    correctIndex: 0,
-    explanation: "Spain defeated Germany 1-0 in the semi-finals before beating the Netherlands in the final."
-  },
-  {
-    question: "Which player holds the record for the most matches played in Men's World Cup history?",
-    options: ["Lothar Matthäus", "Lionel Messi", "Miroslav Klose", "Paolo Maldini"],
+    question: "Which co-host reached the knockout stage for the first time in its World Cup history during the 2026 tournament?",
+    options: ["Mexico", "Canada", "United States", "None of them"],
     correctIndex: 1,
-    explanation: "Lionel Messi broke Lothar Matthäus's record (25 matches) during the 2022 final in Qatar, reaching 26 World Cup appearances."
+    explanation: "Canada made history during the 2026 tournament by qualifying for the knockout stage for the first time ever."
+  },
+  {
+    question: "Who is the fastest player on this edition of the World Cup?",
+    options: ["Erling Haaland", "Jordan Bos", "Kylian Mbappé", "Abdukodir Khusanov"],
+    correctIndex: 1,
+    explanation: "Australia's Jordan Bos was clocked at a top speed of 36.7 km/h, making him the fastest player recorded in the tournament."
+  },
+  {
+    question: "Who became Portugal's youngest player to score a World Cup hat-trick?",
+    options: ["Cristiano Ronaldo", "Gonçalo Ramos", "João Félix", "Rafael Leão"],
+    correctIndex: 1,
+    explanation: "Gonçalo Ramos scored a hat-trick for Portugal against Switzerland at the age of 21 years and 169 days, breaking the record."
+  },
+  {
+    question: "Which nation knocked out Spain on penalties in 2022?",
+    options: ["Croatia", "Morocco", "Japan", "Switzerland"],
+    correctIndex: 1,
+    explanation: "Morocco defeated Spain 3-0 on penalties in the round of 16 of the 2022 World Cup."
+  },
+  {
+    question: "Which country has lost the most FIFA World Cup Finals?",
+    options: ["Netherlands", "Argentina", "Germany", "Italy"],
+    correctIndex: 2,
+    explanation: "Germany has lost in the World Cup Final a record 4 times (1966, 1982, 1986, 2002) in history."
+  },
+  {
+    question: "Who scored the winning goal in the 2014 World Cup Final?",
+    options: ["Thomas Müller", "Mario Götze", "Miroslav Klose", "Toni Kroos"],
+    correctIndex: 1,
+    explanation: "Mario Götze scored in the 113th minute of extra time to secure Germany's 1-0 victory against Argentina."
+  },
+  {
+    question: "Identify the country by its flag shown in this picture:",
+    options: ["Aruba", "Curaçao", "Sint Maarten", "Nauru"],
+    correctIndex: 1,
+    image: "images/curacao.png",
+    explanation: "This is the flag of Curaçao. It features a blue field with a horizontal yellow stripe and two white five-pointed stars representing Curaçao and Klein Curaçao."
+  },
+  {
+    question: "Who scored the fastest goal in this edition of the World Cup?",
+    options: ["Ismael Saibari", "Matías Galarza", "Theo Hernández", "Kylian Mbappé"],
+    correctIndex: 1,
+    explanation: "Paraguay's Matías Galarza scored just 64 seconds into their match against Türkiye, recording the fastest goal of the 2026 World Cup."
+  },
+  {
+    question: "What is the name of the official football that is played in this edition of the World Cup?",
+    options: ["Al Rihla", "Trionda", "Brazuca", "Telstar 18"],
+    correctIndex: 1,
+    explanation: "The official match ball of the 2026 FIFA World Cup is named Trionda, representing the unity of the three host nations (Canada, Mexico, and the United States)."
+  },
+  {
+    question: "In which FIFA World Cup edition did Lionel Messi fail to score any goals?",
+    options: ["2006", "2010", "2014", "2018"],
+    correctIndex: 1,
+    explanation: "Despite starting all five of Argentina's matches in South Africa, Lionel Messi did not score any goals in the 2010 FIFA World Cup."
   }
 ];
 

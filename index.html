@@ -1,307 +1,2055 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>FIFA Men's World Cup Presenter Quiz</title>
-  <meta name="description"
-    content="A premium FIFA Men's World Cup Quiz interface optimized for Quiz Masters and Hosts to present to students/teams on projectors or shared screens.">
-  <meta name="keywords" content="FIFA, World Cup, Quiz, Football, Presenter, Classroom, Scoreboard, Trivia">
-  <meta name="author" content="FIFA Quiz Team">
 
-  <!-- Preconnect to Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Premium Sports Fonts -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap"
-    rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap"
+    rel="stylesheet" />
 
-  <!-- Lucide Icons CDN -->
+  <!-- Material Symbols & Lucide CDN -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Presenter Stylesheet -->
+  <!-- Presenter Legacy Stylesheet (For interactive animations & custom transitions) -->
   <link rel="stylesheet" href="css/styles.css?v=1.0.2">
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-background": "#e3e2e3",
+            "secondary-container": "#454747",
+            "on-secondary-container": "#b5b5b5",
+            "surface-container": "#1f2021",
+            "on-tertiary": "#2a3040",
+            "inverse-on-surface": "#303031",
+            "surface-container-low": "#1b1c1d",
+            "error-container": "#93000a",
+            "on-tertiary-fixed-variant": "#404757",
+            "on-primary-fixed": "#241a00",
+            "on-primary": "#3c2f00",
+            "primary-fixed": "#ffe088",
+            "surface-dim": "#121314",
+            "secondary": "#c6c6c6",
+            "on-secondary-fixed": "#1a1c1c",
+            "on-surface-variant": "#d0c5af",
+            "outline": "#99907c",
+            "on-primary-container": "#554300",
+            "on-secondary": "#2f3131",
+            "on-secondary-fixed-variant": "#454747",
+            "secondary-fixed": "#e2e2e2",
+            "on-primary-fixed-variant": "#574500",
+            "surface-variant": "#343536",
+            "surface-bright": "#39393a",
+            "surface-tint": "#e9c349",
+            "on-tertiary-container": "#3e4555",
+            "on-tertiary-fixed": "#151b2a",
+            "on-error-container": "#ffdad6",
+            "primary-fixed-dim": "#e9c349",
+            "inverse-primary": "#735c00",
+            "on-error": "#690005",
+            "surface-container-high": "#292a2b",
+            "background": "#0a0f0d",
+            "surface-container-highest": "#343536",
+            "on-surface": "#e3e2e3",
+            "primary": "#f2ca50",
+            "inverse-surface": "#e3e2e3",
+            "tertiary": "#c8cee2",
+            "secondary-fixed-dim": "#c6c6c6",
+            "tertiary-fixed-dim": "#c0c6da",
+            "tertiary-container": "#acb3c6",
+            "surface-container-lowest": "#0d0e0f",
+            "primary-container": "#d4af37",
+            "outline-variant": "#4d4635",
+            "tertiary-fixed": "#dce2f6",
+            "surface": "#121314",
+            "error": "#ffb4ab"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "margin-mobile": "16px",
+            "container-max": "1280px",
+            "unit": "8px",
+            "gutter": "24px",
+            "margin-desktop": "64px"
+          },
+          fontFamily: {
+            "body-md": ["Hanken Grotesk"],
+            "headline-lg": ["Anybody"],
+            "label-sm": ["Hanken Grotesk"],
+            "label-lg": ["Hanken Grotesk"],
+            "headline-md": ["Anybody"],
+            "body-lg": ["Hanken Grotesk"],
+            "display-lg": ["Anybody"],
+            "display-lg-mobile": ["Anybody"]
+          },
+          fontSize: {
+            "body-md": ["16px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }],
+            "label-lg": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "1.3", "letterSpacing": "0.03em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800" }]
+          }
+        },
+      },
+    }
+  </script>
+
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+
+    .gold-glow {
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.25);
+    }
+
+    .crimson-glow {
+      box-shadow: 0 0 30px rgba(255, 71, 87, 0.25);
+    }
+
+    .stadium-vignette {
+      background: radial-gradient(circle, transparent 20%, #060b13 100%);
+    }
+
+    .tiebreaker-vignette {
+      background: radial-gradient(circle, transparent 20%, #1a0507 100%);
+    }
+
+    .frosted-glass {
+      background: rgba(10, 20, 15, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .brushed-metal {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brushed-metal::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.02;
+      pointer-events: none;
+    }
+
+    .scrolling-ticker {
+      animation: ticker 40s linear infinite;
+    }
+
+    @keyframes ticker {
+      0% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    canvas#confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    @keyframes pulse-red {
+
+      0%,
+      100% {
+        opacity: 1;
+        text-shadow: 0 0 10px #ff4757;
+      }
+
+      50% {
+        opacity: 0.6;
+        text-shadow: 0 0 20px #ff4757;
+      }
+    }
+
+    .animate-pulse-red {
+      animation: pulse-red 2s infinite;
+    }
+
+    /* Subtle floats for visual cards */
+    .card-float {
+      animation: float-anim 6s ease-in-out infinite;
+    }
+
+    @keyframes float-anim {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-4px);
+      }
+    }
+  </style>
 </head>
 
-<body class="presenter-mode">
+<body
+  class="bg-background text-on-surface font-body-md min-h-screen selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+
   <!-- Canvas for Confetti Effects -->
   <canvas id="confetti-canvas"></canvas>
 
-  <div id="app">
-    <!-- Floating Theme Toggle -->
-    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
-      <i data-lucide="moon" class="theme-icon moon-icon"></i>
-      <i data-lucide="sun" class="theme-icon sun-icon"></i>
-    </button>
+  <!-- Background Shader Layer (WebGL) -->
+  <div id="stadium-shader-bg" class="fixed inset-0 -z-20 pointer-events-none overflow-hidden">
+    <div class="absolute inset-0 w-full h-full opacity-35" style="display:block;">
+      <canvas id="shader-canvas-ANIMATION_3" style="display:block;width:100%;height:100%"></canvas>
+      <script>
+          (function () {
+            const canvas = document.getElementById('shader-canvas-ANIMATION_3');
+            function syncSize() {
+              const w = window.innerWidth || 1280;
+              const h = window.innerHeight || 720;
+              if (canvas.width !== w || canvas.height !== h) {
+                canvas.width = w;
+                canvas.height = h;
+              }
+            }
+            window.addEventListener('resize', syncSize);
+            syncSize();
 
-    <!-- Stadium Glow Effects in Background -->
-    <div class="stadium-glow glow-left"></div>
-    <div class="stadium-glow glow-right"></div>
-    <div class="stadium-grid"></div>
+            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            if (!gl) return;
+            const vs = `attribute vec2 a_position;
+          varying vec2 v_texCoord;
+          void main() {
+            v_texCoord = a_position * 0.5 + 0.5;
+            gl_Position = vec4(a_position, 0.0, 1.0);
+          }`;
+            const fs = `precision highp float;
+          varying vec2 v_texCoord;
+          uniform float u_time;
+          uniform vec2 u_resolution;
 
-    <div class="container">
+          void main() {
+              vec2 uv = v_texCoord;
+              vec3 color = vec3(0.01, 0.04, 0.02);
+              float glow = 0.0;
+              vec2 lightPos = vec2(0.5, 0.85);
+              float d = length(uv - lightPos);
+              glow = smoothstep(0.9, 0.1, d) * 0.25;
+              float pulse = sin(u_time * 0.4) * 0.5 + 0.5;
+              vec3 neon = vec3(0.0, 0.8, 0.95) * pulse * 0.07;
+              float net = sin((uv.x + uv.y) * 120.0) * sin((uv.x - uv.y) * 120.0);
+              net = smoothstep(0.92, 0.96, net) * 0.03;
+              color += glow + neon + net;
+              gl_FragColor = vec4(color, 1.0);
+          }`;
+            function cs(type, src) {
+              const s = gl.createShader(type);
+              gl.shaderSource(s, src);
+              gl.compileShader(s);
+              return s;
+            }
+            const prog = gl.createProgram();
+            gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+            gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+            gl.linkProgram(prog);
+            gl.useProgram(prog);
+            const buf = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+            const pos = gl.getAttribLocation(prog, 'a_position');
+            gl.enableVertexAttribArray(pos);
+            gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+            const uTime = gl.getUniformLocation(prog, 'u_time');
+            const uRes = gl.getUniformLocation(prog, 'u_resolution');
 
-      <!-- ================= LANDING SETUP SCREEN ================= -->
-      <section id="landing-page" class="section active">
+            function render(t) {
+              gl.viewport(0, 0, canvas.width, canvas.height);
+              if (uTime) gl.uniform1f(uTime, t * 0.001);
+              if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+              gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+              requestAnimationFrame(render);
+            }
+            render(0);
+          })();
+      </script>
+    </div>
+    <div class="absolute inset-0 stadium-vignette pointer-events-none" id="stadium-vignette-overlay"></div>
+  </div>
 
+  <!-- Top Navigation Bar -->
+  <nav
+    class="w-full h-16 bg-surface-dim/40 backdrop-blur-md flex justify-between items-center px-6 md:px-12 fixed top-0 z-50 overflow-hidden"
+    style="border-bottom: 1px solid; border-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, transparent) 1;">
+    <video src="Need_an_video_with_all_fifa_wo.mp4" autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-50"></video>
+  </nav>
 
-        <header class="hero-header">
-          <div class="school-branding">
-            <div class="school-badge">
-              <i data-lucide="school" class="icon-gold"></i>
-              <span>ST. MARY'S HIGH SCHOOL, ANIKAD</span>
+  <!-- Main Content Area -->
+  <main class="relative pt-16 min-h-screen flex flex-col justify-between z-10">
+
+    <div class="w-full flex-grow flex flex-col justify-center px-4 py-8">
+
+      <!-- ================= 1. GRAND FINALE LOBBY (Landing setup) ================= -->
+      <section id="landing-page" class="section active w-full max-w-7xl mx-auto px-4 py-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[65vh]">
+
+          <!-- Left Grid Column: Broadcast Brand Presentation -->
+          <div class="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left gap-5">
+            <!-- Logo Centerpiece -->
+            <div class="card-float overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
+              <video id="landing-logo-video" src="images/logo.mp4" autoplay loop muted playsinline
+                class="w-48 h-48 md:w-56 md:h-56 object-cover drop-shadow-[0_0_40px_rgba(242,202,80,0.3)]"></video>
             </div>
-            <div class="presents-text">presents</div>
-          </div>
-          <div class="logo-title-container">
-            <img src="images/logo.png" class="app-logo" alt="FIFA 2026 Logo">
-            <h1>WORLD CUP <span class="highlight">QUIZ</span></h1>
-          </div>
-        </header>
 
-        <!-- Configuration Panel -->
-        <div class="config-panel card">
-          <div class="config-title">
-            <i data-lucide="users" class="icon-gold"></i>
-            <h2>Group Scoreboard Setup</h2>
-          </div>
+            <!-- Titles Stack -->
+            <div class="space-y-3">
 
-          <div class="config-controls">
-            <div class="form-group">
-              <label for="num-teams-select">Number of Groups:</label>
-              <div class="teams-qty-selector">
-                <button type="button" class="btn-qty" id="btn-qty-dec">-</button>
-                <span id="teams-qty-display">3</span>
-                <button type="button" class="btn-qty" id="btn-qty-inc">+</button>
-              </div>
+              <h1
+                class="font-display-lg text-4xl md:text-5xl lg:text-6xl text-primary font-black uppercase tracking-tight italic leading-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+                WORLD CUP QUIZ
+              </h1>
+              <p
+                class="font-headline-md text-sm md:text-base text-on-surface-variant tracking-[0.25em] uppercase font-light">
+                ST. MARY'S HIGH SCHOOL, ANIKAD
+              </p>
             </div>
 
-            <div class="form-group">
-              <label>Edit Group Names:</label>
-              <div class="team-inputs-grid" id="team-inputs-container">
-                <!-- Inputs generated dynamically -->
-              </div>
-            </div>
-          </div>
-        </div>
+            <!-- Presentation Subtext -->
+            <p class="text-on-surface-variant/70 text-sm max-w-md leading-relaxed hidden lg:block">
+              Welcome to the Grand Finale. Configure your tournament teams on the right panel, then click below to
+              launch the final broadcast round!
+            </p>
 
-        <div class="round-selection-grid">
-          <!-- Round 1 Card -->
-          <div class="round-card" id="btn-select-round1" tabindex="0" role="button">
-            <div class="round-card-content">
-              <div class="round-badge green-gradient">ROUND 1</div>
-              <h2>First Round</h2>
-              <div class="round-meta">
-                <div class="meta-item"><i data-lucide="help-circle"></i> 20 Questions</div>
-                <div class="meta-item"><i data-lucide="timer"></i> 30s Countdown</div>
-                <div class="meta-item"><i data-lucide="award"></i> Moderate-Easy Level</div>
-              </div>
-              <p class="round-desc">Kick off with 20 moderate-easy questions covering World Cup legends, iconic finals,
-                and host nations.</p>
-              <button class="btn btn-primary">
-                <span>Start First Round</span>
-                <i data-lucide="play"></i>
+            <!-- Play Action Call-to-action Button (Lobby Start) -->
+            <div id="lobby-start-action-container">
+              <button
+                class="bg-primary text-on-primary px-12 py-4 rounded-lg font-bold uppercase tracking-[0.2em] gold-glow hover:scale-105 active:scale-95 transition-all flex items-center gap-3 border border-primary/30 text-sm"
+                id="btn-select-round2">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                <span>START FINAL ROUND</span>
               </button>
             </div>
-            <div class="card-glow green-glow"></div>
           </div>
 
-          <!-- Round 2 Card -->
-          <div class="round-card" id="btn-select-round2" tabindex="0" role="button">
-            <div class="round-card-content">
-              <div class="round-badge gold-gradient">FINAL ROUND</div>
-              <h2>Final Round</h2>
-              <div class="round-meta">
-                <div class="meta-item"><i data-lucide="help-circle"></i> 15 Questions</div>
-                <div class="meta-item"><i data-lucide="timer"></i> 30s Countdown</div>
-                <div class="meta-item"><i data-lucide="award"></i> Challenging Level</div>
+          <!-- Right Grid Column: Host Control Setup or Scoreboard display -->
+          <div class="lg:col-span-7 w-full flex flex-col gap-6">
+
+            <!-- Setup Config Card (Visible initially) -->
+            <div id="setup-config-panel"
+              class="frosted-glass p-6 rounded-lg shadow-2xl relative overflow-hidden border border-white/5">
+              <div
+                class="absolute inset-0 bg-[linear-gradient(135deg,rgba(242,202,80,0.02),transparent)] pointer-events-none">
               </div>
-              <p class="round-desc">End your quiz campaign with 15 challenging questions testing co-hosting stats,
-                historic records, and matching facts.</p>
-              <button class="btn btn-primary gold-btn">
-                <span>Start Final Round</span>
-                <i data-lucide="zap"></i>
-              </button>
+
+              <div class="flex items-center gap-3 mb-4 border-b border-white/5 pb-4">
+                <span class="material-symbols-outlined text-primary text-3xl">groups</span>
+                <h2 class="font-headline-md text-headline-md text-on-surface font-bold uppercase tracking-wider">Group
+                  Scoreboard Setup</h2>
+              </div>
+
+              <div class="flex flex-col gap-4">
+                <!-- Group Quantity Selector -->
+                <div
+                  class="flex flex-col sm:flex-row justify-between sm:items-center bg-surface-container-low border border-white/5 p-4 rounded-lg gap-4">
+                  <span class="text-on-surface font-medium text-lg">Number of Participating Groups:</span>
+                  <div class="flex items-center gap-4 bg-surface-container rounded-lg p-1 border border-white/10 w-fit">
+                    <button type="button"
+                      class="w-10 h-10 flex items-center justify-center bg-secondary-container/20 hover:bg-primary/20 text-on-surface font-bold rounded-lg transition-colors text-lg"
+                      id="btn-qty-dec">-</button>
+                    <span class="text-xl font-bold px-4 text-primary" id="teams-qty-display">3</span>
+                    <button type="button"
+                      class="w-10 h-10 flex items-center justify-center bg-secondary-container/20 hover:bg-primary/20 text-on-surface font-bold rounded-lg transition-colors text-lg"
+                      id="btn-qty-inc">+</button>
+                  </div>
+                </div>
+
+                <!-- Group Inputs fields -->
+                <div class="flex flex-col gap-3">
+                  <label class="text-on-surface-variant font-medium">Edit Group Names:</label>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="team-inputs-container">
+                    <!-- Dynamic inputs injected here -->
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="card-glow gold-glow"></div>
+
           </div>
         </div>
-
-        <footer class="landing-footer">
-          <p>© 2026 FIFA Men's World Cup Quiz | Made by GIGI VARUGHESE</p>
-          <p style="margin-top: 0.35rem; font-size: 0.75rem; opacity: 0.6;">Optimized for classroom screens &amp; projectors.</p>
-        </footer>
       </section>
 
-      <!-- ================= PRESENTATION QUIZ SCREEN ================= -->
-      <section id="quiz-page" class="section">
+      <!-- ================= 3. GRAND VICTORY CEREMONY (Results page) ================= -->
+      <section id="results-page" class="section hidden w-full max-w-7xl mx-auto px-4 py-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch min-h-[75vh]">
+          
+          <!-- Left Column: Sidebar Navigation -->
+          <div class="lg:col-span-3 flex flex-col justify-between frosted-glass p-6 rounded-lg border border-white/5 bg-surface-container-low/30">
+            <div class="space-y-6">
+              <!-- Sidebar Brand -->
+              <div class="border-b border-white/5 pb-4">
+                <h2 class="font-display-lg text-2xl font-black text-primary tracking-tight uppercase italic leading-none">Pro League</h2>
+                <p class="font-label-sm text-[10px] text-on-surface-variant/70 uppercase tracking-widest mt-1">Tier: Platinum Presenter</p>
+              </div>
+              
+              <!-- Navigation Items -->
+              <nav class="flex flex-col gap-2">
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary transition-colors text-sm font-medium">
+                  <span class="material-symbols-outlined text-lg">sports_soccer</span>
+                  <span>Live Match</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary border border-primary/20 text-sm font-bold">
+                  <span class="material-symbols-outlined text-lg">leaderboard</span>
+                  <span>Leaderboard</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary transition-colors text-sm font-medium">
+                  <span class="material-symbols-outlined text-lg">gavel</span>
+                  <span>Rules</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary transition-colors text-sm font-medium">
+                  <span class="material-symbols-outlined text-lg">history</span>
+                  <span>History</span>
+                </a>
+              </nav>
+            </div>
+            
+            <div class="space-y-4 pt-6 border-t border-white/5">
+              <button class="w-full bg-surface-container hover:bg-surface-container-high text-on-surface font-bold py-3.5 rounded-lg border border-white/5 text-xs uppercase tracking-widest transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer" id="btn-return-lobby">
+                <span class="material-symbols-outlined text-base">home</span>
+                <span>Return to Lobby</span>
+              </button>
+              
+              <div class="flex items-center gap-3 text-on-surface-variant/40 text-[10px] uppercase tracking-wider px-2">
+                <span class="material-symbols-outlined text-sm">settings</span>
+                <span>Settings</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right Column: Victory Stage -->
+          <div class="lg:col-span-9 flex flex-col gap-6">
+            
+            <div class="frosted-glass p-8 rounded-lg shadow-2xl border border-primary/20 relative overflow-hidden flex-grow flex flex-col justify-between items-center text-center">
+              <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(242,202,80,0.03),transparent)] pointer-events-none"></div>
+              
+              <!-- Header Intro -->
+              <div class="mb-4">
+                <span class="px-3 py-1 bg-primary/10 border border-primary/20 rounded font-label-sm text-primary uppercase text-xs font-bold tracking-widest">
+                  Season Finale
+                </span>
+                <h1 class="font-display-lg text-4xl md:text-5xl text-on-surface font-black uppercase tracking-tight italic mt-3 mb-2">
+                  VICTORY CEREMONY
+                </h1>
+                <p class="text-on-surface-variant/70 text-sm max-w-lg mx-auto">
+                  The championship has concluded. All stats are verified. Hail the champions of the Stadium Quiz League!
+                </p>
+              </div>
 
-        <div class="presenter-quiz-layout">
-          <!-- Main Question Area -->
-          <div class="main-presenter-area">
-            <div class="quiz-school-header">ST. MARY'S HIGH SCHOOL, ANIKAD</div>
-
-            <!-- Quiz Tracker Header -->
-            <div class="quiz-header card">
-              <div class="quiz-header-top">
-                <div class="question-tracker">
-                  <span class="label">Question</span>
-                  <span class="value"><span id="current-question-num">1</span><span class="total">/<span
-                        id="total-questions-num">20</span></span></span>
+              <!-- Dynamic Staggered Podium Container -->
+              <div class="grid grid-cols-12 gap-4 items-end w-full max-w-xl mx-auto my-8 min-h-[280px] px-4">
+                <!-- Silver (2nd Place) Spot -->
+                <div class="col-span-4 flex flex-col items-center" id="podium-spot-2">
+                  <div class="mb-3 text-center">
+                    <div class="w-14 h-14 rounded-full border-2 border-secondary/40 bg-surface-container overflow-hidden mx-auto mb-2 relative">
+                      <img src="images/logo.png" class="w-full h-full object-contain" alt="2nd Place Logo">
+                    </div>
+                    <h3 class="font-headline-sm text-sm text-secondary font-bold truncate max-w-[120px]" id="podium-name-2">Silver Hawks</h3>
+                    <p class="font-label-sm text-[10px] text-on-surface-variant/70 uppercase">2nd Place</p>
+                  </div>
+                  <div class="w-full h-28 bg-surface-container-high border border-white/10 flex flex-col items-center justify-center rounded-t-lg relative shadow-xl">
+                    <span class="font-display-lg text-3xl text-secondary/10 font-black">2</span>
+                    <div class="absolute bottom-3 font-label-sm text-xs text-secondary font-bold" id="podium-score-2">0 PTS</div>
+                  </div>
                 </div>
-                <div class="round-indicator-badge" id="quiz-round-indicator">First Round</div>
 
-                <!-- Circular countdown timer -->
-                <div class="timer-container">
-                  <svg class="timer-svg" viewBox="0 0 80 80">
-                    <circle class="timer-bg" cx="40" cy="40" r="34"></circle>
-                    <circle class="timer-progress" id="timer-progress-ring" cx="40" cy="40" r="34"></circle>
-                  </svg>
-                  <span class="timer-text" id="timer-countdown">30</span>
+                <!-- Gold (1st Place) Spot -->
+                <div class="col-span-4 flex flex-col items-center transform -translate-y-4" id="podium-spot-1">
+                  <div class="mb-3 text-center relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+                      <span class="material-symbols-outlined text-primary text-2xl drop-shadow-[0_0_10px_rgba(242,202,80,0.6)]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                    </div>
+                    <div class="w-20 h-20 rounded-full border-4 border-primary bg-surface-container overflow-hidden mx-auto mb-2 relative shadow-lg gold-glow">
+                      <img src="images/logo.png" class="w-full h-full object-contain" alt="1st Place Logo">
+                    </div>
+                    <h3 class="font-display-lg text-base text-primary font-black uppercase italic truncate max-w-[140px]" id="podium-name-1">Golden Pride</h3>
+                    <p class="font-label-sm text-[10px] text-primary/80 uppercase tracking-widest font-bold">Champion</p>
+                  </div>
+                  <div class="w-full h-36 bg-primary-container/20 border border-primary/30 flex flex-col items-center justify-center rounded-t-lg relative shadow-[0_10px_25px_rgba(0,0,0,0.5)]">
+                    <span class="font-display-lg text-4xl text-primary/10 font-black">1</span>
+                    <div class="absolute bottom-4 font-label-lg text-sm text-primary font-black" id="podium-score-1">0 PTS</div>
+                  </div>
+                </div>
+
+                <!-- Bronze (3rd Place) Spot -->
+                <div class="col-span-4 flex flex-col items-center" id="podium-spot-3">
+                  <div class="mb-3 text-center">
+                    <div class="w-14 h-14 rounded-full border-2 border-outline/40 bg-surface-container overflow-hidden mx-auto mb-2 relative">
+                      <img src="images/logo.png" class="w-full h-full object-contain" alt="3rd Place Logo">
+                    </div>
+                    <h3 class="font-headline-sm text-sm text-outline font-bold truncate max-w-[120px]" id="podium-name-3">Bronze Guard</h3>
+                    <p class="font-label-sm text-[10px] text-on-surface-variant/70 uppercase">3rd Place</p>
+                  </div>
+                  <div class="w-full h-20 bg-surface-container-high border border-white/5 flex flex-col items-center justify-center rounded-t-lg relative shadow-xl">
+                    <span class="font-display-lg text-3xl text-outline/10 font-black">3</span>
+                    <div class="absolute bottom-2 font-label-sm text-xs text-outline font-bold" id="podium-score-3">0 PTS</div>
+                  </div>
                 </div>
               </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar-fill" id="quiz-progress-fill" style="width: 0%"></div>
+
+              <!-- Trigger Celebration Button -->
+              <div class="mt-2 mb-4 w-full flex justify-center">
+                <button class="bg-primary text-on-primary px-10 py-4 rounded-lg font-bold uppercase tracking-[0.2em] gold-glow hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 border border-primary/30 text-xs cursor-pointer" id="btn-trigger-celebration">
+                  <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">celebration</span>
+                  <span>TRIGGER CHAMPION CELEBRATION</span>
+                </button>
+              </div>
+
+              <!-- Rankings list for 4th, 5th, 6th place -->
+              <div class="w-full mt-4 hidden text-left" id="results-extra-rankings-box">
+                <div class="bg-surface-container-low/50 border border-white/5 rounded-lg p-4 flex flex-col gap-2">
+                  <h4 class="font-label-lg text-on-surface-variant text-[10px] uppercase tracking-wider mb-1">Runner-Up Standings</h4>
+                  <div class="flex flex-col gap-2" id="results-final-leaderboard-list">
+                    <!-- Dynamic extra rows -->
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Validation Accordions (FINAL REVIEW) -->
+            <div class="frosted-glass p-6 rounded-lg shadow-xl border border-white/5 text-left">
+              <h2 class="font-headline-md text-xl text-on-surface font-bold uppercase tracking-wider mb-6 pb-2 border-b border-white/5 flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-2xl">rate_review</span>
+                <span>Final Review</span>
+              </h2>
+              
+              <div class="bg-surface-container-low/50 border border-white/5 rounded-lg p-5">
+                <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/5">
+                  <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary text-2xl">receipt_long</span>
+                    <h3 class="font-headline-sm text-sm text-on-surface font-bold">QUIZ MASTER ANSWER SHEET</h3>
+                  </div>
+                  <div class="flex items-center gap-2 text-green-500 font-bold uppercase text-[10px] tracking-widest">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    <span>OFFICIAL</span>
+                  </div>
+                </div>
+                
+                <div class="flex flex-col gap-3" id="results-review-accordion-container">
+                  <!-- Accordion rows are injected dynamically -->
+                </div>
               </div>
             </div>
 
-            <!-- Question and Options Area -->
-            <div class="question-container card">
+          </div>
+        </div>
+      </section>
 
-              <!-- Question Image Wrapper -->
-              <div id="question-image-wrapper" class="question-image-wrapper hidden">
-                <img id="question-img" src="" alt="Question Image">
-                <div id="question-image-mask" class="question-image-mask"></div>
+      <!-- ================= 3B. GRAPHICAL STANDINGS CHART (TIE DETECTED) ================= -->
+      <section id="standings-chart-page" class="section hidden w-full max-w-4xl mx-auto px-4 py-12 text-center flex flex-col justify-center items-center min-h-[85vh]">
+        
+        <!-- Badge -->
+        <div class="px-5 py-2.5 bg-primary/10 border border-primary/30 rounded-full mb-6 max-w-sm mx-auto flex items-center justify-center gap-2 text-primary font-bold uppercase tracking-widest text-xs">
+          <span class="material-symbols-outlined text-base">bar_chart</span>
+          <span>Final Standings Graph</span>
+        </div>
+        
+        <!-- Title -->
+        <h1 class="font-display-lg text-4xl md:text-5xl text-on-surface font-black uppercase italic tracking-tighter leading-none mb-4">
+          TOURNAMENT STANDINGS
+        </h1>
+        <p class="text-error font-bold uppercase tracking-wider text-sm mb-10 flex items-center gap-2 justify-center">
+          <span class="material-symbols-outlined text-lg animate-pulse">warning</span>
+          <span>Tie Detected for 1st Place! Tiebreaker Required.</span>
+        </p>
+        
+        <!-- Standings Graph Container -->
+        <div class="w-full frosted-glass p-8 md:p-10 rounded-xl border border-white/5 shadow-2xl relative overflow-hidden mb-10">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(242,202,80,0.02),transparent)] pointer-events-none"></div>
+          
+          <div class="flex flex-col gap-6 w-full text-left" id="standings-chart-bars-container">
+            <!-- Dynamic bars will be injected here in app.js -->
+          </div>
+        </div>
+        
+        <!-- Control buttons -->
+        <div class="flex items-center justify-center w-full">
+          <button class="bg-primary text-on-primary px-12 py-4 rounded-lg font-bold uppercase tracking-[0.2em] gold-glow hover:scale-105 active:scale-95 transition-all flex items-center gap-3 border border-primary/30 text-sm cursor-pointer" id="btn-proceed-to-tiebreaker">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">gavel</span>
+            <span>PROCEED TO TIEBREAKER</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ================= 4. SUDDEN DEATH TIEBREAKER INTRO LOBBY ================= -->
+      <section id="tiebreaker-intro-page" class="section hidden w-full max-w-5xl mx-auto px-4 py-12 text-center flex flex-col justify-center items-center min-h-[80vh]">
+        
+        <!-- Status Badge -->
+        <div class="px-5 py-2.5 bg-error-container/10 border border-error/30 rounded-full mb-6 max-w-sm mx-auto flex items-center justify-center gap-2 text-error font-bold uppercase tracking-widest text-xs animate-pulse">
+          <span class="material-symbols-outlined text-base">warning</span>
+          <span>CRITICAL TIEBREAKER STATUS</span>
+        </div>
+        
+        <!-- Title -->
+        <h1 class="font-display-lg text-5xl md:text-6xl text-on-surface font-black uppercase italic tracking-tighter leading-none mb-10 drop-shadow-[0_4px_20px_rgba(255,71,87,0.3)]">
+          SUDDEN DEATH <br class="sm:hidden" />
+          <span class="text-error">TIEBREAKER</span>
+        </h1>
+        
+        <!-- Contenders Card -->
+        <div class="w-full max-w-4xl frosted-glass p-8 md:p-10 rounded-xl border border-error/25 shadow-2xl relative overflow-hidden mb-10">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(147,0,10,0.06),transparent)] pointer-events-none"></div>
+          
+          <div id="tiebreaker-contenders-container" class="flex flex-col items-center gap-6 w-full">
+            <!-- Dynamically populated in app.js -->
+          </div>
+        </div>
+        
+        <!-- Controls Buttons -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 justify-center w-full">
+          <button class="bg-primary text-on-primary px-10 py-4 rounded-lg font-bold uppercase tracking-[0.2em] gold-glow hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 border border-primary/30 text-xs cursor-pointer w-full sm:w-auto" id="btn-enter-battleground">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sports_kabaddi</span>
+            <span>ENTER BATTLEGROUND</span>
+          </button>
+          
+          <button class="border border-error/30 hover:bg-error-container/10 text-error px-10 py-4 rounded-lg font-bold uppercase tracking-[0.2em] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 text-xs cursor-pointer w-full sm:w-auto" id="btn-review-rules">
+            <span class="material-symbols-outlined">menu_book</span>
+            <span>REVIEW RULES</span>
+          </button>
+
+          <button class="border border-white/10 hover:bg-white/5 text-on-surface-variant px-10 py-4 rounded-lg font-bold uppercase tracking-[0.2em] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 text-xs cursor-pointer w-full sm:w-auto" id="btn-tiebreaker-back-lobby">
+            <span class="material-symbols-outlined">home</span>
+            <span>Return to Lobby</span>
+          </button>
+        </div>
+        
+        <!-- Custom Footer details -->
+        <div class="mt-16 w-full max-w-4xl border-t border-white/5 pt-6 flex flex-wrap justify-center md:justify-between items-center gap-4 text-[10px] text-on-surface-variant/50 uppercase tracking-widest">
+          <div>LEAGUE RECORD: 324 PLAYERS ACTIVE</div>
+          <div>STAKE POOL: 14.5K GOLD</div>
+          <div>STADIUM: ST. MARY'S MAIN PLAYGROUND</div>
+        </div>
+        
+      </section>
+
+
+      <!-- ================= 2. QUIZ MASTER BROADCAST CONSOLE ================= -->
+      <section id="quiz-page" class="section hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-7xl mx-auto px-2">
+
+          <!-- Left Column: Main Question Screen Panel -->
+          <div class="lg:col-span-8 flex flex-col gap-6">
+            <div
+              class="font-label-lg text-label-lg text-primary bg-primary/5 border border-primary/10 px-4 py-2 rounded-full w-fit uppercase tracking-widest">
+              St. Mary's High School
+            </div>
+
+            <!-- Question Tracker & Info -->
+            <div class="frosted-glass p-6 rounded-lg flex justify-between items-center shadow-lg">
+              <div class="flex flex-col text-left">
+                <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Question
+                  Tracker</span>
+                <div class="font-headline-lg text-headline-lg font-bold text-on-surface mt-1">
+                  Question <span id="current-question-num" class="text-primary">1</span> <span
+                    class="text-on-surface-variant/40">/</span> <span id="total-questions-num">17</span>
+                </div>
               </div>
 
-              <h2 class="question-text" id="question-text">Question Loading...</h2>
-
-              <!-- Blank screen / click to reveal indicator -->
-              <div class="hidden-options-placeholder" id="options-placeholder">
-                <i data-lucide="eye-off" class="icon-pulse"></i>
-                <p>Options are hidden. Click "Reveal Options" when you are ready to start the timer.</p>
+              <div
+                class="px-4 py-1.5 border border-secondary-container/80 rounded-lg font-label-lg text-label-lg text-secondary uppercase tracking-widest animate-pulse"
+                id="quiz-round-indicator">
+                Final Round
               </div>
 
-              <div class="options-grid hidden" id="options-container">
-                <!-- Generated dynamically -->
+              <!-- Circular Countdown SVG Timer -->
+              <div class="timer-container relative flex items-center justify-center w-16 h-16">
+                <svg class="timer-svg w-full h-full -rotate-90" viewBox="0 0 80 80">
+                  <circle class="stroke-secondary-container/20 fill-none" cx="40" cy="40" r="34" stroke-width="6">
+                  </circle>
+                  <circle class="stroke-primary fill-none transition-all duration-1000 ease-linear"
+                    id="timer-progress-ring" cx="40" cy="40" r="34" stroke-width="6" stroke-linecap="round"
+                    stroke-dasharray="213.6" stroke-dashoffset="0"></circle>
+                </svg>
+                <span class="absolute font-headline-lg text-xl text-primary font-bold" id="timer-countdown">30</span>
+              </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="w-full bg-white/5 h-2.5 rounded-full overflow-hidden border border-white/5">
+              <div class="bg-gradient-to-r from-primary to-surface-tint h-full transition-all duration-500 rounded-full"
+                id="quiz-progress-fill" style="width: 0%"></div>
+            </div>
+
+            <!-- Main Question Presentation Box -->
+            <div class="frosted-glass p-8 rounded-lg flex flex-col gap-6 shadow-2xl relative">
+
+              <!-- Masked Question Image Wrapper -->
+              <div id="question-image-wrapper"
+                class="question-image-wrapper hidden w-full max-h-80 rounded-xl overflow-hidden relative border border-white/10 shadow-lg">
+                <img id="question-img" src="" alt="Question Image" class="w-full h-full object-cover">
+                <div id="question-image-mask"
+                  class="question-image-mask absolute inset-0 bg-background/95 backdrop-blur-md flex flex-col items-center justify-center">
+                  <span
+                    class="material-symbols-outlined text-secondary text-5xl animate-bounce mb-2">visibility_off</span>
+                  <p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest font-bold">Image is
+                    Masked (Face Hidden)</p>
+                </div>
+              </div>
+
+              <!-- Question Heading -->
+              <h2
+                class="font-display-lg text-headline-lg md:text-display-lg-mobile text-on-surface leading-tight text-left animate-pulse"
+                id="question-text">
+                Question Loading...
+              </h2>
+
+              <!-- Options Hidden Placeholder -->
+              <div
+                class="hidden-options-placeholder flex flex-col items-center justify-center py-14 px-6 bg-surface-container-low/30 border border-dashed border-white/10 rounded-lg"
+                id="options-placeholder">
+                <span class="material-symbols-outlined text-secondary text-5xl animate-pulse mb-3">visibility_off</span>
+                <p class="font-body-md text-on-surface-variant max-w-md text-center">
+                  Options are hidden. Click "Reveal Options" to start the 30-second countdown.
+                </p>
+              </div>
+
+              <!-- Options Grid (Revealed) -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 hidden" id="options-container">
+                <!-- Dynamically generated button options go here -->
               </div>
             </div>
 
             <!-- Educational Explanation revealed after answer reveal -->
-            <div class="explanation-card card hidden" id="explanation-box">
-              <div class="exp-title">
-                <i data-lucide="info" class="icon-gold"></i>
-                <h3>Did You Know?</h3>
+            <div class="frosted-glass p-6 rounded-lg border-l-4 border-primary flex items-start gap-4 shadow-lg hidden"
+              id="explanation-box">
+              <span class="material-symbols-outlined text-primary text-3xl mt-0.5">info</span>
+              <div>
+                <h3
+                  class="font-headline-md text-headline-md text-primary mb-1 uppercase tracking-wider font-bold text-left">
+                  Did You Know?</h3>
+                <p class="text-on-surface-variant leading-relaxed text-left" id="explanation-text"></p>
               </div>
-              <p id="explanation-text"></p>
             </div>
 
           </div>
 
-          <!-- Presenter Scoreboard Sidebar -->
-          <aside class="presenter-sidebar">
-            <!-- Host Controls -->
-            <div class="host-controls-panel card">
-              <div class="host-controls-label">
-                <i data-lucide="sliders"></i>
-                <span>QUIZMASTER CONTROLS</span>
+          <!-- Right Column: Host Controls & Live Scoreboard Sidebar -->
+          <aside class="lg:col-span-4 flex flex-col gap-6">
+
+            <!-- Host Panel Controls -->
+            <div class="presenter-console-card frosted-glass p-6 rounded-lg shadow-lg border border-primary/20">
+              <div
+                class="flex items-center gap-2 mb-4 text-on-surface font-label-lg uppercase tracking-wider border-b border-white/5 pb-2">
+                <span class="material-symbols-outlined text-primary">sliders</span>
+                <span>Presenter Console</span>
               </div>
-              <div class="host-controls-grid">
-                <button class="btn btn-primary" id="btn-reveal-options">
-                  <i data-lucide="eye"></i>
+
+              <div class="flex flex-col gap-3">
+                <button
+                  class="w-full bg-primary-container hover:bg-primary-container/80 text-on-primary-fixed py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all active:scale-95 uppercase tracking-widest text-xs"
+                  id="btn-reveal-options">
+                  <span class="material-symbols-outlined">visibility</span>
                   <span>Reveal Options</span>
                 </button>
-                <button class="btn btn-primary gold-btn" id="btn-reveal-answer" disabled>
-                  <i data-lucide="check-square"></i>
+
+                <button
+                  class="w-full bg-primary hover:bg-primary/80 text-on-primary py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all active:scale-95 gold-glow disabled:opacity-30 disabled:pointer-events-none uppercase tracking-widest text-xs"
+                  id="btn-reveal-answer" disabled>
+                  <span class="material-symbols-outlined">check_circle</span>
                   <span>Reveal Answer</span>
                 </button>
-                <button class="btn btn-secondary" id="btn-next-question" disabled>
+
+                <button
+                  class="w-full bg-surface-container hover:bg-surface-container-high text-on-surface py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all active:scale-95 disabled:opacity-30 disabled:pointer-events-none uppercase tracking-widest text-xs border border-white/5"
+                  id="btn-next-question" disabled>
                   <span>Next Question</span>
-                  <i data-lucide="arrow-right"></i>
+                  <span class="material-symbols-outlined">arrow_right_alt</span>
                 </button>
-                <button class="btn btn-quit-host" id="btn-quit-quiz">
-                  <i data-lucide="log-out"></i>
-                  <span>Quit</span>
+
+                <button
+                  class="w-full border border-error/20 hover:bg-error-container/10 text-error py-3 rounded-lg font-bold flex items-center justify-center gap-2 transition-all active:scale-95 mt-4 uppercase tracking-widest text-xs"
+                  id="btn-quit-quiz">
+                  <span class="material-symbols-outlined">logout</span>
+                  <span>Quit Campaign</span>
                 </button>
               </div>
             </div>
-            <div class="scoreboard-widget card">
-              <div class="scoreboard-header">
-                <i data-lucide="trophy" class="icon-gold"></i>
-                <h3>LIVE SCOREBOARD</h3>
+
+            <!-- Scoreboard Sidebar -->
+            <div
+              class="frosted-glass p-6 rounded-lg shadow-lg relative overflow-hidden flex-grow flex flex-col justify-between border border-white/5">
+              <div>
+                <div
+                  class="flex items-center gap-2 mb-4 text-on-surface font-label-lg uppercase tracking-wider border-b border-white/5 pb-2">
+                  <span class="material-symbols-outlined text-primary">trophy</span>
+                  <span>Live Scoreboard</span>
+                </div>
+
+                <!-- Scoreboard list is injected dynamically -->
+                <div class="flex flex-col gap-3" id="sidebar-scoreboard-container">
+                  <!-- Team rows will be generated here -->
+                </div>
               </div>
-              <div class="scoreboard-teams-list" id="sidebar-scoreboard-container">
-                <!-- Dynamically generated list of teams and scores -->
-              </div>
-              <div class="scoreboard-tip">
-                <p><strong>Scoring:</strong> Correct: +10 pts | Incorrect: 0 pts</p>
-                <p style="margin-top: 0.35rem; opacity: 0.7; font-size: 0.7rem;">Use +10 to award points.</p>
+
+              <div class="mt-6 p-4 bg-surface-container-low/50 rounded-lg border border-white/5">
+                <p class="text-sm font-medium text-primary">Scoring Protocol:</p>
+                <p class="text-xs text-on-surface-variant mt-1 text-left">Correct Answer: +10 pts | Incorrect: 0 pts.
+                  Use controls to award points.</p>
               </div>
             </div>
+
           </aside>
-        </div>
 
+        </div>
       </section>
 
-      <!-- ================= PRESENTATION RESULTS SCREEN ================= -->
-      <section id="results-page" class="section">
-        <div class="results-header card">
-          <div class="trophy-victory">
-            <i data-lucide="award" class="large-trophy gold-glow-text"></i>
-          </div>
-          <h1>Final Results</h1>
-          <p class="subtitle">Congratulations to all players! Here is the final leaderboard for this round.</p>
 
-          <!-- Final Presenter Leaderboard -->
-          <div class="final-leaderboard-container">
-            <div class="final-leaderboard-list" id="final-leaderboard-list">
-              <!-- Dynamically populated leader board ranking -->
+      <!-- ================= 3. SUDDEN DEATH TIEBREAKER SCREEN ================= -->
+      <section id="tiebreaker-page" class="section hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-7xl mx-auto px-2">
+
+          <!-- Left Column: Main High-Stakes Screen Panel -->
+          <div class="lg:col-span-8 flex flex-col gap-6">
+
+            <div
+              class="font-label-lg text-label-lg text-error bg-error-container/15 border border-error/30 px-4 py-2 rounded-full w-fit uppercase tracking-widest animate-pulse flex items-center gap-2 font-bold">
+              <span class="material-symbols-outlined text-sm">warning</span>
+              <span>Sudden Death Arena - High Stakes Mode</span>
             </div>
+
+            <!-- Tiebreaker Header info -->
+            <div
+              class="frosted-glass p-6 rounded-lg flex justify-between items-center shadow-2xl border border-error/20 relative overflow-hidden">
+              <div
+                class="absolute inset-0 bg-[linear-gradient(135deg,rgba(147,0,10,0.05),transparent)] pointer-events-none">
+              </div>
+              <div class="flex flex-col text-left">
+                <span class="font-label-sm text-label-sm text-error uppercase tracking-widest font-bold">Tiebreaker
+                  Question</span>
+                <div class="font-headline-lg text-headline-lg font-bold text-on-surface mt-1">
+                  Question <span id="tiebreaker-current-question-num" class="text-error">1</span>
+                </div>
+              </div>
+
+              <!-- Red Circular Countdown svg -->
+              <div class="timer-container relative flex items-center justify-center w-16 h-16">
+                <svg class="timer-svg w-full h-full -rotate-90" viewBox="0 0 80 80">
+                  <circle class="stroke-error-container/20 fill-none" cx="40" cy="40" r="34" stroke-width="6"></circle>
+                  <circle class="stroke-error fill-none transition-all duration-1000 ease-linear animate-pulse"
+                    id="tiebreaker-timer-progress-ring" cx="40" cy="40" r="34" stroke-width="6" stroke-linecap="round"
+                    stroke-dasharray="213.6" stroke-dashoffset="0"></circle>
+                </svg>
+                <span class="absolute font-headline-lg text-xl text-error font-bold"
+                  id="tiebreaker-timer-countdown">30</span>
+              </div>
+            </div>
+
+            <!-- Main Question Presentation Box (Sudden Death) -->
+            <div class="frosted-glass p-8 rounded-lg flex flex-col gap-6 shadow-2xl relative border-2 border-error/30">
+              <div
+                class="absolute top-0 right-0 p-3 bg-error/10 text-error font-mono text-[10px] uppercase tracking-widest border-l border-b border-error/20 rounded-bl-lg font-bold">
+                Golden Goal Rule Active
+              </div>
+
+              <!-- Question Heading -->
+              <h2
+                class="font-display-lg text-headline-lg md:text-display-lg-mobile text-on-surface leading-tight text-left"
+                id="tiebreaker-question-text">
+                Sudden Death Question Loading...
+              </h2>
+
+              <!-- Options Hidden Placeholder (Tiebreaker) -->
+              <div
+                class="flex flex-col items-center justify-center py-14 px-6 bg-error-container/5 border border-dashed border-error/20 rounded-lg"
+                id="tiebreaker-options-placeholder">
+                <span class="material-symbols-outlined text-error text-5xl animate-pulse mb-3">visibility_off</span>
+                <p class="font-body-md text-on-surface-variant max-w-md text-center">
+                  Options are hidden. Click "Reveal Options" to begin sudden death countdown.
+                </p>
+              </div>
+
+              <!-- Options Grid (Revealed) -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 hidden" id="tiebreaker-options-container">
+                <!-- Dynamic sudden death buttons go here -->
+              </div>
+            </div>
+
+            <!-- Educational Explanation card -->
+            <div class="frosted-glass p-6 rounded-lg border-l-4 border-error flex items-start gap-4 shadow-lg hidden"
+              id="tiebreaker-explanation-box">
+              <span class="material-symbols-outlined text-error text-3xl mt-0.5">info</span>
+              <div>
+                <h3
+                  class="font-headline-md text-headline-md text-error mb-1 uppercase tracking-wider font-bold text-left">
+                  Did You Know?</h3>
+                <p class="text-on-surface-variant leading-relaxed text-left" id="tiebreaker-explanation-text"></p>
+              </div>
+            </div>
+
           </div>
 
-          <div class="action-buttons">
-            <button class="btn btn-primary" id="btn-retry-round">
-              <i data-lucide="refresh-cw"></i>
-              <span>Host Again</span>
-            </button>
-            <button class="btn btn-secondary" id="btn-home">
-              <i data-lucide="home"></i>
-              <span>Main Menu</span>
-            </button>
-          </div>
-        </div>
+          <!-- Right Column: Host Controls & Active Tied Scoreboard -->
+          <aside class="lg:col-span-4 flex flex-col gap-6">
 
-        <!-- Detailed Match Review Section -->
-        <div class="review-section">
-          <div class="section-title">
-            <i data-lucide="clipboard-list" class="icon-gold"></i>
-            <h2>Quiz Master Answer Sheet</h2>
-          </div>
+            <!-- Tiebreaker Host Panel -->
+            <div class="referee-console-card frosted-glass p-6 rounded-lg shadow-lg border border-error/20">
+              <div
+                class="flex items-center gap-2 mb-4 text-on-surface font-label-lg uppercase tracking-wider border-b border-white/5 pb-2">
+                <span class="material-symbols-outlined text-error">gavel</span>
+                <span>Referee Console</span>
+              </div>
 
-          <div class="review-cards-list" id="review-cards-container">
-            <!-- Review items will be generated dynamically -->
-          </div>
+              <div class="flex flex-col gap-3">
+                <button
+                  class="w-full bg-error-container/30 hover:bg-error-container/50 border border-error/40 text-on-surface py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all active:scale-95 uppercase tracking-widest text-xs"
+                  id="tiebreaker-btn-reveal-options">
+                  <span class="material-symbols-outlined">visibility</span>
+                  <span>Reveal Options</span>
+                </button>
+
+                <button
+                  class="w-full bg-error hover:bg-error/80 text-white py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all active:scale-95 uppercase tracking-widest text-xs disabled:opacity-30 disabled:pointer-events-none crimson-glow"
+                  id="tiebreaker-btn-reveal-answer" disabled>
+                  <span class="material-symbols-outlined">check_circle</span>
+                  <span>Reveal Answer</span>
+                </button>
+
+                <button
+                  class="w-full bg-surface-container hover:bg-surface-container-high text-on-surface py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all active:scale-95 uppercase tracking-widest text-xs disabled:opacity-30 disabled:pointer-events-none border border-white/5"
+                  id="tiebreaker-btn-next-question" disabled>
+                  <span>Next Step</span>
+                  <span class="material-symbols-outlined">arrow_right_alt</span>
+                </button>
+
+                <button
+                  class="w-full border border-white/10 hover:bg-white/5 text-on-surface-variant py-3 rounded-lg font-bold flex items-center justify-center gap-2 transition-all active:scale-95 text-xs uppercase tracking-wider mt-4"
+                  id="tiebreaker-btn-quit-quiz">
+                  <span class="material-symbols-outlined">logout</span>
+                  <span>Back to Lobby</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Tied Scoreboard list -->
+            <div
+              class="frosted-glass p-6 rounded-lg shadow-lg relative overflow-hidden flex-grow flex flex-col justify-between border border-error/15">
+              <div>
+                <div
+                  class="flex items-center gap-2 mb-4 text-on-surface font-label-lg uppercase tracking-wider border-b border-white/5 pb-2">
+                  <span class="material-symbols-outlined text-error">sports</span>
+                  <span>Sudden Death Standings</span>
+                </div>
+
+                <div class="flex flex-col gap-3" id="tiebreaker-sidebar-scoreboard-container">
+                  <!-- Dynamic tied team rows will be injected here -->
+                </div>
+              </div>
+
+              <div class="mt-6 p-4 bg-surface-container-low/50 rounded-lg border border-white/5">
+                <p class="text-sm font-medium text-error">Sudden Death Rules:</p>
+                <p class="text-xs text-on-surface-variant mt-1 text-left">First team to answer correctly when the other
+                  misses wins the Championship.</p>
+              </div>
+            </div>
+
+          </aside>
+
         </div>
       </section>
-
-
 
     </div>
-  </div>
 
-  <!-- Tiebreaker Announcement Overlay -->
-  <div id="tiebreaker-overlay" class="tiebreaker-overlay">
-    <div class="tiebreaker-overlay-content">
-      <i data-lucide="zap" class="tiebreaker-icon-glow"></i>
-      <h1>SUDDEN DEATH TIEBREAKER</h1>
-      <p>The top groups are tied! Preparing sudden death questions...</p>
+    <!-- Footer Section -->
+    <footer class="w-full h-16 bg-surface-dim/40 backdrop-blur-md flex justify-center items-center px-6 md:px-12 relative overflow-hidden mt-auto"
+      style="border-top: 1px solid; border-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.15) 80%, transparent) 1;">
+      
+      <button id="footer-theme-toggle" class="relative z-10 px-4 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-on-surface-variant hover:text-primary transition-all flex items-center gap-2 cursor-pointer text-xs font-semibold uppercase tracking-wider shadow-md">
+        <span class="material-symbols-outlined text-base">contrast</span>
+        <span>Toggle Theme</span>
+      </button>
+    </footer>
+
+  </main>
+
+  <!-- ================= 4. TIEBREAKER OVERLAY (Transition Alert) ================= -->
+  <div id="tiebreaker-overlay"
+    class="tiebreaker-overlay hidden fixed inset-0 z-50 bg-background/90 backdrop-blur-md flex items-center justify-center">
+    <div
+      class="tiebreaker-overlay-content text-center p-8 bg-surface-container/60 border border-error/20 rounded-2xl max-w-md w-full shadow-2xl relative overflow-hidden animate-pulse">
+      <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(147,0,10,0.1),transparent)] pointer-events-none">
+      </div>
+
+      <span class="material-symbols-outlined text-error text-6xl mb-4 animate-bounce">bolt</span>
+      <h1 class="font-display-lg text-headline-lg text-error uppercase italic tracking-tighter mb-2">SUDDEN DEATH
+        TIEBREAKER</h1>
+      <div class="w-24 h-0.5 bg-error/30 mx-auto mb-6"></div>
+
+      <p class="text-on-surface-variant mb-6 text-sm">
+        The top groups are tied! Switching to the sudden death stadium arena...
+      </p>
+
+      <div
+        class="flex justify-center items-center gap-2 text-error text-sm font-bold uppercase tracking-wider animate-pulse">
+        <span class="w-2.5 h-2.5 rounded-full bg-error animate-ping"></span>
+        <span>Entering Golden Goal Arena</span>
+      </div>
     </div>
   </div>
 
   <!-- JS Scripts -->
   <script src="js/questions.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=2.5"></script>
+  <script>
+    (function() {
+      function initSoccerAnimation() {
+        return; // Overridden by native looping WebM video elements
+        const canvasLeft = document.getElementById('soccer-anim-left');
+        const canvasRight = document.getElementById('soccer-anim-right');
+        
+        function createAnimation(canvas, side) {
+          if (!canvas) return;
+          const ctx = canvas.getContext('2d');
+          const w = canvas.width; // 320px
+          const h = canvas.height; // 40px
+          
+          const mx = (rx) => side === 'left' ? rx : w - rx;
+          
+          let goalNetLeft = {
+            x: 4,
+            y: 8,
+            w: 15,
+            h: 28,
+            ripple: 0
+          };
+          
+          let goalNetRight = {
+            x: w - 19,
+            y: 8,
+            w: 15,
+            h: 28,
+            ripple: 0
+          };
+
+          let ball = {
+            rx: w / 2,
+            ry: h / 2,
+            vrx: 0,
+            vry: 0,
+            radius: 2.8,
+            angle: 0,
+            rotationSpeed: 0,
+            owner: null,
+            teamInPossession: 'gold',
+            state: 'kickoff', // 'kickoff', 'play', 'pass', 'shoot', 'caught'
+            targetRx: 0,
+            targetRy: 0,
+            passTarget: null
+          };
+          
+          let scoreGold = 0;
+          let scoreSilver = 0;
+          let players = [];
+          
+          function initPlayers() {
+            players = [];
+            
+            // Gold GK (Right Goal)
+            players.push({
+              id: 'gold_gk',
+              role: 'GK',
+              team: 'gold',
+              color: '#10b981', // green jersey
+              colorShorts: '#111827',
+              hairColor: '#451a03',
+              homeRx: w - 12,
+              homeRy: h / 2 + 2,
+              rx: w - 12,
+              ry: h / 2 + 2,
+              targetRx: w - 12,
+              targetRy: h / 2 + 2,
+              state: 'running',
+              legPhase: 0,
+              angle: 0,
+              dir: -1
+            });
+            
+            // Gold Defenders
+            const goldDefRows = [14, 24, 34];
+            for (let i = 0; i < 3; i++) {
+              players.push({
+                id: `gold_def_${i}`,
+                role: 'DEF',
+                team: 'gold',
+                color: '#f2ca50',
+                colorShorts: '#111827',
+                hairColor: '#2d1500',
+                homeRx: w - 50 - i * 5,
+                homeRy: goldDefRows[i],
+                rx: w - 50 - i * 5,
+                ry: goldDefRows[i],
+                state: 'running',
+                legPhase: Math.random() * Math.PI,
+                angle: 0,
+                dir: -1
+              });
+            }
+            
+            // Gold Midfielders
+            const goldMidRows = [12, 18, 28, 36];
+            for (let i = 0; i < 4; i++) {
+              players.push({
+                id: `gold_mid_${i}`,
+                role: 'MID',
+                team: 'gold',
+                color: '#f2ca50',
+                colorShorts: '#111827',
+                hairColor: '#7c2d12',
+                homeRx: w - 100 - i * 4,
+                homeRy: goldMidRows[i],
+                rx: w - 100 - i * 4,
+                ry: goldMidRows[i],
+                state: 'running',
+                legPhase: Math.random() * Math.PI,
+                angle: 0,
+                dir: -1
+              });
+            }
+            
+            // Gold Attackers
+            const goldAttRows = [14, 24, 34];
+            for (let i = 0; i < 3; i++) {
+              players.push({
+                id: `gold_att_${i}`,
+                role: 'ATT',
+                team: 'gold',
+                color: '#f2ca50',
+                colorShorts: '#111827',
+                hairColor: '#1e1b4b',
+                homeRx: w - 160 - i * 5,
+                homeRy: goldAttRows[i],
+                rx: w - 160 - i * 5,
+                ry: goldAttRows[i],
+                state: 'running',
+                legPhase: Math.random() * Math.PI,
+                angle: 0,
+                dir: -1
+              });
+            }
+
+            // Silver GK (Left Goal)
+            players.push({
+              id: 'silver_gk',
+              role: 'GK',
+              team: 'silver',
+              color: '#3b82f6', // blue jersey
+              colorShorts: '#e2e8f0',
+              hairColor: '#7c2d12',
+              homeRx: 12,
+              homeRy: h / 2 + 2,
+              rx: 12,
+              ry: h / 2 + 2,
+              targetRx: 12,
+              targetRy: h / 2 + 2,
+              state: 'running',
+              legPhase: 0,
+              angle: 0,
+              dir: 1
+            });
+            
+            // Silver Defenders
+            const silverDefRows = [14, 24, 34];
+            for (let i = 0; i < 3; i++) {
+              players.push({
+                id: `silver_def_${i}`,
+                role: 'DEF',
+                team: 'silver',
+                color: '#e2e8f0',
+                colorShorts: '#1d4ed8',
+                hairColor: '#172554',
+                homeRx: 50 + i * 5,
+                homeRy: silverDefRows[i],
+                rx: 50 + i * 5,
+                ry: silverDefRows[i],
+                state: 'running',
+                legPhase: Math.random() * Math.PI,
+                angle: 0,
+                dir: 1
+              });
+            }
+            
+            // Silver Midfielders
+            const silverMidRows = [12, 18, 28, 36];
+            for (let i = 0; i < 4; i++) {
+              players.push({
+                id: `silver_mid_${i}`,
+                role: 'MID',
+                team: 'silver',
+                color: '#e2e8f0',
+                colorShorts: '#1d4ed8',
+                hairColor: '#0c0a09',
+                homeRx: 100 + i * 4,
+                homeRy: silverMidRows[i],
+                rx: 100 + i * 4,
+                ry: silverMidRows[i],
+                state: 'running',
+                legPhase: Math.random() * Math.PI,
+                angle: 0,
+                dir: 1
+              });
+            }
+            
+            // Silver Attackers
+            const silverAttRows = [14, 24, 34];
+            for (let i = 0; i < 3; i++) {
+              players.push({
+                id: `silver_att_${i}`,
+                role: 'ATT',
+                team: 'silver',
+                color: '#e2e8f0',
+                colorShorts: '#1d4ed8',
+                hairColor: '#451a03',
+                homeRx: 160 + i * 5,
+                homeRy: silverAttRows[i],
+                rx: 160 + i * 5,
+                ry: silverAttRows[i],
+                state: 'running',
+                legPhase: Math.random() * Math.PI,
+                angle: 0,
+                dir: 1
+              });
+            }
+          }
+          
+          let particles = [];
+          let timer = 0;
+          let matchState = 'play';
+          
+          function getPlayer(id) {
+            return players.find(p => p.id === id);
+          }
+          
+          function resetToKickoff(kickoffTeam) {
+            initPlayers();
+            ball.rx = w / 2;
+            ball.ry = h / 2;
+            ball.vrx = 0;
+            ball.vry = 0;
+            ball.owner = null;
+            ball.state = 'kickoff';
+            ball.teamInPossession = kickoffTeam || (Math.random() > 0.5 ? 'gold' : 'silver');
+            timer = 0;
+            goalNetLeft.ripple = 0;
+            goalNetRight.ripple = 0;
+          }
+          
+          initPlayers();
+          resetToKickoff();
+          
+          function tick() {
+            // Background: turf stripes
+            const stripeWidth = w / 10;
+            for (let i = 0; i < 10; i++) {
+              ctx.fillStyle = i % 2 === 0 ? '#0b2614' : '#0f381c';
+              ctx.fillRect(i * stripeWidth, 0, stripeWidth, h);
+            }
+            
+            // Corner Spotlight Beams
+            const beamLeft = ctx.createRadialGradient(0, 0, 5, 0, 0, 90);
+            beamLeft.addColorStop(0, 'rgba(255, 255, 255, 0.12)');
+            beamLeft.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            ctx.fillStyle = beamLeft;
+            ctx.beginPath();
+            ctx.arc(0, 0, 90, 0, Math.PI * 2);
+            ctx.fill();
+            
+            const beamRight = ctx.createRadialGradient(w, 0, 5, w, 0, 90);
+            beamRight.addColorStop(0, 'rgba(255, 255, 255, 0.12)');
+            beamRight.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            ctx.fillStyle = beamRight;
+            ctx.beginPath();
+            ctx.arc(w, 0, 90, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Draw field markings
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.arc(w / 2, h / 2, 28, 0, Math.PI * 2);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(w / 2, 0);
+            ctx.lineTo(w / 2, h);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.strokeRect(0, 5, 40, 30);
+            ctx.strokeRect(0, 11, 15, 18);
+            ctx.strokeRect(w - 40, 5, 40, 30);
+            ctx.strokeRect(w - 15, 11, 15, 18);
+            
+            ctx.strokeStyle = 'rgba(242, 202, 80, 0.12)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(0, h - 3);
+            ctx.lineTo(w, h - 3);
+            ctx.stroke();
+            
+            // Left Goalpost net spring curve
+            let rippleOffsetL = 0;
+            if (matchState === 'goal' && ball.rx < w / 2) {
+              rippleOffsetL = Math.sin(timer * 0.45) * Math.exp(-timer * 0.07) * 8 * -1;
+            }
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.18)';
+            ctx.lineWidth = 0.5;
+            for (let i = 3; i < goalNetLeft.h; i += 3) {
+              ctx.beginPath();
+              ctx.moveTo(goalNetLeft.x + goalNetLeft.w, goalNetLeft.y + i);
+              ctx.quadraticCurveTo(goalNetLeft.x + rippleOffsetL, goalNetLeft.y + i, goalNetLeft.x + rippleOffsetL, goalNetLeft.y + i);
+              ctx.stroke();
+            }
+            for (let i = 3; i < goalNetLeft.w; i += 3) {
+              ctx.beginPath();
+              const rxPos = goalNetLeft.x + rippleOffsetL + i;
+              ctx.moveTo(rxPos, goalNetLeft.y);
+              ctx.lineTo(rxPos, goalNetLeft.y + goalNetLeft.h);
+              ctx.stroke();
+            }
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.lineWidth = 1.2;
+            ctx.beginPath();
+            ctx.moveTo(goalNetLeft.x + goalNetLeft.w, goalNetLeft.y + goalNetLeft.h);
+            ctx.lineTo(goalNetLeft.x + goalNetLeft.w, goalNetLeft.y);
+            ctx.lineTo(goalNetLeft.x, goalNetLeft.y);
+            ctx.lineTo(goalNetLeft.x, goalNetLeft.y + goalNetLeft.h);
+            ctx.stroke();
+            
+            // Right Goalpost net spring curve
+            let rippleOffsetR = 0;
+            if (matchState === 'goal' && ball.rx > w / 2) {
+              rippleOffsetR = Math.sin(timer * 0.45) * Math.exp(-timer * 0.07) * 8;
+            }
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.18)';
+            ctx.lineWidth = 0.5;
+            for (let i = 3; i < goalNetRight.h; i += 3) {
+              ctx.beginPath();
+              ctx.moveTo(goalNetRight.x, goalNetRight.y + i);
+              ctx.quadraticCurveTo(goalNetRight.x + goalNetRight.w + rippleOffsetR, goalNetRight.y + i, goalNetRight.x + goalNetRight.w + rippleOffsetR, goalNetRight.y + i);
+              ctx.stroke();
+            }
+            for (let i = 3; i < goalNetRight.w; i += 3) {
+              ctx.beginPath();
+              const rxPos = goalNetRight.x + rippleOffsetR + i;
+              ctx.moveTo(rxPos, goalNetRight.y);
+              ctx.lineTo(rxPos, goalNetRight.y + goalNetRight.h);
+              ctx.stroke();
+            }
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.lineWidth = 1.2;
+            ctx.beginPath();
+            ctx.moveTo(goalNetRight.x, goalNetRight.y + goalNetRight.h);
+            ctx.lineTo(goalNetRight.x, goalNetRight.y);
+            ctx.lineTo(goalNetRight.x + goalNetRight.w, goalNetRight.y);
+            ctx.lineTo(goalNetRight.x + goalNetRight.w, goalNetRight.y + goalNetRight.h);
+            ctx.stroke();
+            
+            // Game Simulation Logic
+            if (matchState === 'play') {
+              timer++;
+              
+              const isGoldPoss = ball.teamInPossession === 'gold';
+              
+              // Standard player positioning shifts - Slower, fluid pacing
+              players.forEach(p => {
+                if (p.role === 'GK') return;
+                
+                let targetRx = p.homeRx;
+                if (isGoldPoss) {
+                  // Gold attacks left (shift left), Silver defends left (shift left)
+                  targetRx = p.homeRx - 85;
+                } else {
+                  // Silver attacks right (shift right), Gold defends right (shift right)
+                  targetRx = p.homeRx + 85;
+                }
+                
+                // Clamp outfield positioning so they stay on field
+                targetRx = Math.max(35, Math.min(w - 35, targetRx));
+                
+                // Slow-motion movement damping multiplier: 0.02 (instead of 0.04)
+                p.rx += (targetRx - p.rx) * 0.02;
+                p.ry += (p.homeRy - p.ry) * 0.02;
+                
+                if (Math.abs(targetRx - p.rx) > 1.5 && p.state === 'running') {
+                  // Slower running animation stride phase
+                  p.legPhase += 0.11;
+                  p.dir = targetRx > p.rx ? 1 : -1;
+                }
+              });
+              
+              // Kickoff State
+              if (ball.state === 'kickoff') {
+                ball.rx = w / 2;
+                ball.ry = h / 2;
+                if (timer > 30) {
+                  // Pass to a midfielder
+                  const mids = players.filter(p => p.team === ball.teamInPossession && p.role === 'MID');
+                  const recipient = mids[Math.floor(Math.random() * mids.length)];
+                  ball.owner = recipient;
+                  ball.state = 'play';
+                }
+              }
+              
+              // Active Play State
+              else if (ball.state === 'play') {
+                const owner = ball.owner;
+                if (owner) {
+                  const dir = owner.team === 'gold' ? -1 : 1;
+                  
+                  // Ball owner dribbles forward - slow-motion speed 0.42 pixels/frame
+                  owner.rx += dir * 0.42;
+                  owner.legPhase += 0.13;
+                  owner.dir = dir;
+                  
+                  ball.rx = owner.rx + dir * 4;
+                  ball.ry = owner.ry + 8;
+                  ball.angle += dir * 0.08; // slower ball rotation
+                  
+                  // Defensive Pressure & Tackling
+                  players.forEach(def => {
+                    if (def.team === owner.team || def.role === 'GK') return;
+                    
+                    const distToBall = Math.abs(def.rx - owner.rx) + Math.abs(def.ry - owner.ry);
+                    
+                    // Slide tackle opportunity
+                    if (distToBall < 18 && def.state === 'running' && Math.random() < 0.07) {
+                      def.state = 'slide';
+                      def.timer = 0;
+                      // Slower professional slide slideDx
+                      def.slideDx = (owner.rx - def.rx) > 0 ? 0.7 : -0.7;
+                    }
+                    
+                    if (def.state === 'slide') {
+                      def.timer++;
+                      def.rx += def.slideDx;
+                      def.legPhase += 0.15;
+                      
+                      // Interception check
+                      const touchDist = Math.abs(def.rx - owner.rx) + Math.abs(def.ry - owner.ry);
+                      if (touchDist < 5.5) {
+                        // Tackle successful!
+                        ball.owner = def;
+                        ball.teamInPossession = def.team;
+                        def.state = 'running';
+                        owner.legPhase = 0; // Stumble
+                        
+                        // Kick grass clippings
+                        for (let g = 0; g < 4; g++) {
+                          particles.push({
+                            x: mx(ball.rx),
+                            y: ball.ry,
+                            vx: (def.slideDx > 0 ? 0.35 : -0.35) + (Math.random() - 0.5) * 0.3,
+                            vy: -0.4 * Math.random() - 0.1,
+                            color: '#22c55e',
+                            size: 1.2 + Math.random(),
+                            alpha: 1.0,
+                            decay: 0.05
+                          });
+                        }
+                      }
+                      
+                      if (def.timer > 25) { // longer recovery for slow-mo
+                        def.state = 'running';
+                      }
+                    }
+                  });
+                  
+                  // Passing Decision
+                  const distToOppGoal = owner.team === 'gold' ? owner.rx : w - owner.rx;
+                  
+                  if (distToOppGoal > 75) {
+                    // Decide to pass
+                    if (Math.random() < 0.035 || (players.some(def => def.team !== owner.team && Math.abs(def.rx - owner.rx) < 14 && def.role !== 'GK'))) {
+                      const teammates = players.filter(p => p.team === owner.team && p.id !== owner.id && p.role !== 'GK');
+                      // Find advanced teammates
+                      const forwardTeammates = teammates.filter(p => owner.team === 'gold' ? p.rx < owner.rx - 15 : p.rx > owner.rx + 15);
+                      const targets = forwardTeammates.length > 0 ? forwardTeammates : teammates;
+                      
+                      if (targets.length > 0) {
+                        const target = targets[Math.floor(Math.random() * targets.length)];
+                        ball.state = 'pass';
+                        ball.owner = null;
+                        ball.targetRx = target.rx;
+                        ball.targetRy = target.ry;
+                        ball.passTarget = target;
+                        
+                        const steps = 32; // double step count for slow motion
+                        ball.vrx = (target.rx - ball.rx) / steps;
+                        ball.vry = (target.ry - ball.ry) / steps - 0.45; // slight loft
+                      }
+                    }
+                  } 
+                  // Shooting Decision
+                  else if (distToOppGoal <= 75 && Math.random() < 0.12) {
+                    ball.state = 'shoot';
+                    ball.owner = null;
+                    const targetGoalNet = owner.team === 'gold' ? goalNetLeft : goalNetRight;
+                    
+                    const targetRy = targetGoalNet.y + 4 + Math.random() * (targetGoalNet.h - 8);
+                    const destRx = owner.team === 'gold' ? targetGoalNet.x + targetGoalNet.w : targetGoalNet.x;
+                    
+                    const steps = 26; // Slower shot duration
+                    ball.vrx = (destRx - ball.rx) / steps;
+                    ball.vry = (targetRy - ball.ry) / steps - 0.7; // slower rise
+                    ball.rotationSpeed = owner.team === 'gold' ? -0.12 : 0.12;
+                    
+                    // Defending GK reacts
+                    const defGk = players.find(p => p.team !== owner.team && p.role === 'GK');
+                    if (defGk) {
+                      defGk.state = 'diving';
+                      defGk.targetRy = targetRy;
+                      defGk.diveRx = (destRx + (owner.team === 'gold' ? 8 : -8) - defGk.rx) / steps;
+                      defGk.diveRy = (targetRy - defGk.ry) / steps;
+                    }
+                    
+                    // Grass clippings
+                    for (let g = 0; g < 5; g++) {
+                      particles.push({
+                        x: mx(ball.rx),
+                        y: ball.ry,
+                        vx: (dir > 0 ? 0.4 : -0.4) * Math.random() + (Math.random() - 0.5) * 0.25,
+                        vy: -0.4 * Math.random() - 0.1,
+                        color: '#22c55e',
+                        size: 1.2 + Math.random(),
+                        alpha: 1.0,
+                        decay: 0.04
+                      });
+                    }
+                  }
+                }
+              }
+              
+              // Ball in Flight - Passing
+              else if (ball.state === 'pass') {
+                ball.rx += ball.vrx;
+                ball.ry += ball.vry;
+                ball.vry += 0.015; // low gravity for slow-mo arc
+                ball.angle += ball.vrx > 0 ? 0.07 : -0.07;
+                
+                if (ball.ry > h - 6) {
+                  ball.ry = h - 6;
+                  ball.vry = -ball.vry * 0.45;
+                }
+                
+                const dx = ball.rx - ball.passTarget.rx;
+                const dy = ball.ry - ball.passTarget.ry;
+                if (Math.sqrt(dx*dx + dy*dy) < 9) {
+                  ball.owner = ball.passTarget;
+                  ball.state = 'play';
+                }
+              }
+              
+              // Ball in Flight - Shooting
+              else if (ball.state === 'shoot') {
+                ball.rx += ball.vrx;
+                ball.ry += ball.vry;
+                ball.vry += 0.025; // Slower drop rate
+                ball.angle += ball.rotationSpeed;
+                
+                const silverGk = getPlayer('silver_gk');
+                const goldGk = getPlayer('gold_gk');
+                
+                // Silver GK diving logic (saving Gold shots at left end)
+                if (silverGk.state === 'diving') {
+                  silverGk.rx += silverGk.diveRx;
+                  silverGk.ry += silverGk.diveRy;
+                  silverGk.angle = -Math.PI / 4;
+                  
+                  // Save Check
+                  const dist = Math.sqrt((ball.rx - silverGk.rx)**2 + (ball.ry - silverGk.ry)**2);
+                  if (dist < 7.5) {
+                    ball.owner = silverGk;
+                    ball.state = 'caught';
+                    silverGk.state = 'caught';
+                    timer = 0;
+                  }
+                }
+                
+                // Gold GK diving logic (saving Silver shots at right end)
+                if (goldGk.state === 'diving') {
+                  goldGk.rx += goldGk.diveRx;
+                  goldGk.ry += goldGk.diveRy;
+                  goldGk.angle = Math.PI / 4;
+                  
+                  // Save Check
+                  const dist = Math.sqrt((ball.rx - goldGk.rx)**2 + (ball.ry - goldGk.ry)**2);
+                  if (dist < 7.5) {
+                    ball.owner = goldGk;
+                    ball.state = 'caught';
+                    goldGk.state = 'caught';
+                    timer = 0;
+                  }
+                }
+                
+                // Goal Checks
+                const scoredLeft = ball.rx <= goalNetLeft.x + goalNetLeft.w;
+                if (scoredLeft && ball.ry >= goalNetLeft.y && ball.ry <= goalNetLeft.y + goalNetLeft.h) {
+                  ball.state = 'goal';
+                  matchState = 'goal';
+                  scoreGold++;
+                  goalNetLeft.ripple = 1.0;
+                  timer = 0;
+                  silverGk.state = 'beaten';
+                  
+                  // Attacker celebration kneeslide
+                  const goldAtts = players.filter(p => p.team === 'gold' && p.role === 'ATT');
+                  goldAtts.forEach(p => p.state = 'kneeslide');
+                  
+                  // Confetti
+                  for (let p = 0; p < 25; p++) {
+                    particles.push({
+                      x: mx(ball.rx),
+                      y: ball.ry,
+                      vx: 0.75 * Math.random() + (Math.random() - 0.5) * 0.75,
+                      vy: -0.8 * Math.random() - 0.25,
+                      color: `hsl(${38 + Math.random() * 20}, 95%, ${55 + Math.random() * 20}%)`,
+                      size: 2.0 + Math.random() * 2.0,
+                      alpha: 1.0,
+                      decay: 0.015 + Math.random() * 0.01
+                    });
+                  }
+                }
+                
+                const scoredRight = ball.rx >= goalNetRight.x;
+                if (scoredRight && ball.ry >= goalNetRight.y && ball.ry <= goalNetRight.y + goalNetRight.h) {
+                  ball.state = 'goal';
+                  matchState = 'goal';
+                  scoreSilver++;
+                  goalNetRight.ripple = 1.0;
+                  timer = 0;
+                  goldGk.state = 'beaten';
+                  
+                  // Attacker celebration kneeslide
+                  const silverAtts = players.filter(p => p.team === 'silver' && p.role === 'ATT');
+                  silverAtts.forEach(p => p.state = 'kneeslide');
+                  
+                  // Confetti
+                  for (let p = 0; p < 25; p++) {
+                    particles.push({
+                      x: mx(ball.rx),
+                      y: ball.ry,
+                      vx: -0.75 * Math.random() + (Math.random() - 0.5) * 0.75,
+                      vy: -0.8 * Math.random() - 0.25,
+                      color: `hsl(${210 + Math.random() * 20}, 95%, ${55 + Math.random() * 20}%)`,
+                      size: 2.0 + Math.random() * 2.0,
+                      alpha: 1.0,
+                      decay: 0.015 + Math.random() * 0.01
+                    });
+                  }
+                }
+                
+                // Out of Bounds / Corner kick restart
+                if (ball.rx < 0 || ball.rx > w) {
+                  resetToKickoff(ball.rx < 0 ? 'silver' : 'gold');
+                }
+              }
+              
+              // Caught state
+              else if (ball.state === 'caught') {
+                const gk = ball.owner;
+                ball.rx = gk.rx;
+                ball.ry = gk.ry + 4;
+                
+                gk.rx += ((gk.team === 'silver' ? 12 : w - 12) - gk.rx) * 0.05; // slower return
+                gk.ry += ((h / 2 + 2) - gk.ry) * 0.05;
+                gk.angle *= 0.85;
+                
+                if (timer > 80) { // Slower release delay
+                  // Release and pass to defender
+                  const defenders = players.filter(p => p.team === gk.team && p.role === 'DEF');
+                  const recipient = defenders[Math.floor(Math.random() * defenders.length)];
+                  ball.owner = recipient;
+                  ball.state = 'play';
+                  gk.state = 'running';
+                }
+              }
+              
+              // Standby GK tracking ball y - slower damping: 0.04
+              const silverGk = getPlayer('silver_gk');
+              if (silverGk && silverGk.state === 'running') {
+                silverGk.ry += (Math.max(goalNetLeft.y + 4, Math.min(goalNetLeft.y + goalNetLeft.h - 4, ball.ry)) - silverGk.ry) * 0.04;
+              }
+              const goldGk = getPlayer('gold_gk');
+              if (goldGk && goldGk.state === 'running') {
+                goldGk.ry += (Math.max(goalNetRight.y + 4, Math.min(goalNetRight.y + goalNetRight.h - 4, ball.ry)) - goldGk.ry) * 0.04;
+              }
+            } 
+            
+            // Goal celebration state
+            else if (matchState === 'goal') {
+              timer++;
+              ball.vrx *= 0.65;
+              ball.vry *= 0.65;
+              ball.rx += ball.vrx;
+              ball.ry += ball.vry;
+              
+              const silverGk = getPlayer('silver_gk');
+              const goldGk = getPlayer('gold_gk');
+              silverGk.angle *= 0.9;
+              goldGk.angle *= 0.9;
+              
+              // Outfield players run to congratulate the scorer - slower pace
+              players.forEach(p => {
+                if (p.role === 'GK') return;
+                
+                if (p.state === 'kneeslide') {
+                  p.rx += p.dir * 0.12; // slow slide friction
+                } else {
+                  // Move towards center or target celebration
+                  const scorer = players.find(x => x.state === 'kneeslide' && x.team === p.team);
+                  if (scorer) {
+                    p.rx += (scorer.rx - p.rx) * 0.02; // slower celebration gathering
+                    p.ry += (scorer.ry - p.ry) * 0.02;
+                    p.legPhase += 0.12;
+                    p.dir = scorer.rx > p.rx ? 1 : -1;
+                  }
+                }
+              });
+              
+              if (timer > 70) { // optimized delay in slow-mo before kickoff
+                matchState = 'play';
+                resetToKickoff(ball.rx < w / 2 ? 'silver' : 'gold');
+              }
+            }
+            
+            // Draw particles
+            for (let i = particles.length - 1; i >= 0; i--) {
+              const p = particles[i];
+              p.x += p.vx;
+              p.y += p.vy;
+              p.vy += 0.015; // slow-mo gravity
+              p.alpha -= p.decay;
+              if (p.alpha <= 0) {
+                particles.splice(i, 1);
+                continue;
+              }
+              ctx.save();
+              ctx.globalAlpha = p.alpha;
+              ctx.fillStyle = p.color;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+              ctx.fill();
+              ctx.restore();
+            }
+            
+            // DRAW ALL 22 PLAYERS (Skeletal figures)
+            players.forEach(p => {
+              ctx.save();
+              ctx.translate(mx(p.rx), p.ry);
+              
+              const scaleX = (side === 'left' ? -1 : 1) * p.dir;
+              ctx.scale(scaleX, 1);
+              ctx.rotate(p.angle || 0);
+              
+              let hipX = 0, hipY = -7;
+              let chestX = 0, chestY = -12;
+              let headX = 0, headY = -16.5;
+              
+              let leftKneeX, leftKneeY, leftAnkleX, leftAnkleY, leftFootX, leftFootY;
+              let rightKneeX, rightKneeY, rightAnkleX, rightAnkleY, rightFootX, rightFootY;
+              let leftElbowX, leftElbowY, leftHandX, leftHandY;
+              let rightElbowX, rightElbowY, rightHandX, rightHandY;
+              
+              const runPhase = p.legPhase;
+              
+              if (p.state === 'running') {
+                const thighL = Math.sin(runPhase) * 0.55;
+                const thighR = -Math.sin(runPhase) * 0.55;
+                const kneeL = (Math.cos(runPhase) + 1.0) * 0.5;
+                const kneeR = (-Math.cos(runPhase) + 1.0) * 0.5;
+                
+                leftKneeX = hipX + Math.sin(thighL) * 3.8;
+                leftKneeY = hipY + Math.cos(thighL) * 3.8;
+                leftAnkleX = leftKneeX - Math.sin(thighL + kneeL) * 3.8;
+                leftAnkleY = leftKneeY + Math.cos(thighL + kneeL) * 3.8;
+                leftFootX = leftAnkleX + 1.6;
+                leftFootY = leftAnkleY;
+                
+                rightKneeX = hipX + Math.sin(thighR) * 3.8;
+                rightKneeY = hipY + Math.cos(thighR) * 3.8;
+                rightAnkleX = rightKneeX - Math.sin(thighR + kneeR) * 3.8;
+                rightAnkleY = rightKneeY + Math.cos(thighR + kneeR) * 3.8;
+                rightFootX = rightAnkleX + 1.6;
+                rightFootY = rightAnkleY;
+                
+                const armL = Math.cos(runPhase) * 0.45;
+                const armR = -Math.cos(runPhase) * 0.45;
+                
+                leftElbowX = chestX - Math.sin(armL) * 2.8;
+                leftElbowY = chestY + Math.cos(armL) * 2.8;
+                leftHandX = leftElbowX - Math.sin(armL - 0.3) * 2.8;
+                leftHandY = leftElbowY + Math.cos(armL - 0.3) * 2.8;
+                
+                rightElbowX = chestX - Math.sin(armR) * 2.8;
+                rightElbowY = chestY + Math.cos(armR) * 2.8;
+                rightHandX = rightElbowX - Math.sin(armR - 0.3) * 2.8;
+                rightHandY = rightElbowY + Math.cos(armR - 0.3) * 2.8;
+              } 
+              else if (p.state === 'diving') {
+                leftKneeX = hipX - 2.8; leftKneeY = hipY + 0.8;
+                leftAnkleX = leftKneeX - 3.8; leftAnkleY = leftKneeY + 0.8;
+                leftFootX = leftAnkleX - 0.8; leftFootY = leftAnkleY + 0.8;
+                
+                rightKneeX = hipX - 3.8; rightKneeY = hipY - 0.8;
+                rightAnkleX = rightKneeX - 3.8; rightAnkleY = rightKneeY - 0.8;
+                rightFootX = rightAnkleX - 0.8; rightFootY = rightAnkleY - 0.8;
+                
+                leftElbowX = chestX + 3.8; leftElbowY = chestY + 0.8;
+                leftHandX = leftElbowX + 3.8; leftHandY = leftElbowY + 0.8;
+                
+                rightElbowX = chestX + 3.8; rightElbowY = chestY - 0.8;
+                rightHandX = rightElbowX + 3.8; rightHandY = rightElbowY - 0.8;
+              } 
+              else if (p.state === 'kneeslide') {
+                chestX = -3.8; chestY = -8.5;
+                headX = -5.8; headY = -12.5;
+                
+                leftKneeX = hipX + 2.8; leftKneeY = hipY + 2.8;
+                leftAnkleX = leftKneeX - 2.8; leftAnkleY = leftKneeY + 0.8;
+                leftFootX = leftAnkleX - 1.8; leftFootY = leftAnkleY;
+                
+                rightKneeX = hipX + 2.8; rightKneeY = hipY + 2.8;
+                rightAnkleX = rightKneeX - 2.8; rightAnkleY = rightKneeY + 0.8;
+                rightFootX = rightAnkleX - 1.8; rightFootY = rightAnkleY;
+                
+                leftElbowX = chestX - 1.8; leftElbowY = chestY - 3.8;
+                leftHandX = leftElbowX - 0.8; leftHandY = leftElbowY - 3.8;
+                
+                rightElbowX = chestX + 0.8; rightElbowY = chestY - 3.8;
+                rightHandX = rightElbowX + 1.8; rightHandY = rightElbowY - 3.8;
+              }
+              else if (p.state === 'slide') {
+                chestX = -4.5; chestY = -3.8;
+                headX = -7.5; headY = -4.8;
+                
+                leftKneeX = hipX + 4.5; leftKneeY = hipY + 1.8;
+                leftAnkleX = leftKneeX + 4.5; leftAnkleY = leftKneeY + 0.8;
+                leftFootX = leftAnkleX + 1.8; leftFootY = leftAnkleY;
+                
+                rightKneeX = hipX - 1.8; rightKneeY = hipY + 0.8;
+                rightAnkleX = rightKneeX - 2.8; rightAnkleY = rightKneeY + 1.8;
+                rightFootX = rightAnkleX - 0.8; rightFootY = rightAnkleY + 0.8;
+                
+                leftElbowX = chestX - 1.8; leftElbowY = chestY - 0.8;
+                leftHandX = leftElbowX - 1.8; leftHandY = leftElbowY;
+                
+                rightElbowX = chestX - 0.8; rightElbowY = chestY - 1.8;
+                rightHandX = rightElbowX - 1.8; rightHandY = rightElbowY - 0.8;
+              }
+              else { // Beaten
+                chestX = -3.8; chestY = 1.8;
+                headX = -7.5; headY = 1.8;
+                
+                leftKneeX = hipX + 3.8; leftKneeY = hipY + 0.8;
+                leftAnkleX = leftKneeX + 3.8; leftAnkleY = leftKneeY;
+                leftFootX = leftAnkleX + 0.8; leftFootY = leftAnkleY;
+                
+                rightKneeX = hipX + 2.8; rightKneeY = hipY - 0.8;
+                rightAnkleX = rightKneeX + 3.8; rightAnkleY = rightKneeY;
+                rightFootX = rightAnkleX + 0.8; rightFootY = rightAnkleY;
+                
+                leftElbowX = chestX - 1.8; leftElbowY = chestY - 0.8;
+                leftHandX = leftElbowX - 1.8; leftHandY = leftElbowY;
+                
+                rightElbowX = chestX - 0.8; rightElbowY = chestY - 1.8;
+                rightHandX = rightElbowX - 1.8; rightHandY = rightElbowY - 0.8;
+              }
+              
+              const sockColor = p.team === 'gold' ? '#ffffff' : '#1e293b';
+              const shoeColor = '#111827';
+              
+              // Draw legs
+              function drawLegJoints(kneeX, kneeY, ankleX, ankleY, footX, footY) {
+                ctx.strokeStyle = p.colorShorts || '#111827';
+                ctx.lineWidth = 1.95;
+                ctx.lineCap = 'round';
+                ctx.beginPath();
+                ctx.moveTo(hipX, hipY);
+                ctx.lineTo(kneeX, kneeY);
+                ctx.stroke();
+                
+                ctx.strokeStyle = sockColor;
+                ctx.lineWidth = 1.4;
+                ctx.beginPath();
+                ctx.moveTo(kneeX, kneeY);
+                ctx.lineTo(ankleX, ankleY);
+                ctx.stroke();
+                
+                ctx.strokeStyle = shoeColor;
+                ctx.lineWidth = 1.7;
+                ctx.beginPath();
+                ctx.moveTo(ankleX, ankleY);
+                ctx.lineTo(footX, footY);
+                ctx.stroke();
+              }
+              
+              drawLegJoints(leftKneeX, leftKneeY, leftAnkleX, leftAnkleY, leftFootX, leftFootY);
+              drawLegJoints(rightKneeX, rightKneeY, rightAnkleX, rightAnkleY, rightFootX, rightFootY);
+              
+              // Jersey Torso
+              ctx.fillStyle = p.color;
+              ctx.beginPath();
+              ctx.moveTo(chestX - 2.5, chestY);
+              ctx.lineTo(chestX + 2.5, chestY);
+              ctx.lineTo(hipX + 2.2, hipY);
+              ctx.lineTo(hipX - 2.2, hipY);
+              ctx.closePath();
+              ctx.fill();
+              
+              // Shorts waist band
+              ctx.fillStyle = p.colorShorts || '#111827';
+              ctx.fillRect(hipX - 2.4, hipY - 0.8, 4.8, 2.2);
+              
+              // Arm sleeves
+              ctx.strokeStyle = p.color;
+              ctx.lineWidth = 1.6;
+              ctx.beginPath();
+              ctx.moveTo(chestX - 2.2, chestY + 0.8);
+              ctx.lineTo(leftElbowX, leftElbowY);
+              ctx.moveTo(chestX + 2.2, chestY + 0.8);
+              ctx.lineTo(rightElbowX, rightElbowY);
+              ctx.stroke();
+              
+              // Skin arms
+              ctx.strokeStyle = '#ffdbac';
+              ctx.lineWidth = 1.1;
+              ctx.beginPath();
+              ctx.moveTo(leftElbowX, leftElbowY);
+              ctx.lineTo(leftHandX, leftHandY);
+              ctx.moveTo(rightElbowX, rightElbowY);
+              ctx.lineTo(rightHandX, rightHandY);
+              ctx.stroke();
+              
+              // GK Gloves
+              if (p.role === 'GK') {
+                ctx.fillStyle = '#ef4444';
+                ctx.beginPath();
+                ctx.arc(leftHandX, leftHandY, 1.4, 0, Math.PI * 2);
+                ctx.arc(rightHandX, rightHandY, 1.4, 0, Math.PI * 2);
+                ctx.fill();
+              }
+              
+              // Neck
+              ctx.strokeStyle = '#ffdbac';
+              ctx.lineWidth = 1.3;
+              ctx.beginPath();
+              ctx.moveTo(chestX, chestY);
+              ctx.lineTo(headX, headY);
+              ctx.stroke();
+              
+              // Face
+              ctx.fillStyle = '#ffdbac';
+              ctx.beginPath();
+              ctx.arc(headX, headY, 2.5, 0, Math.PI * 2);
+              ctx.fill();
+              
+              // Hair
+              ctx.fillStyle = p.hairColor || '#271b1b';
+              ctx.beginPath();
+              ctx.arc(headX, headY - 0.8, 1.9, Math.PI, 0);
+              ctx.fill();
+              
+              ctx.restore();
+            });
+            
+            // Draw Ball
+            ctx.save();
+            ctx.translate(mx(ball.rx), ball.ry);
+            ctx.rotate(ball.angle);
+            
+            // Ball Shadow (mapped to pitch floor)
+            ctx.fillStyle = 'rgba(0,0,0,0.22)';
+            ctx.beginPath();
+            ctx.arc(0, h - 3 - ball.ry + ball.radius, ball.radius * 0.8, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Base
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(0, 0, ball.radius, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Pentagon details
+            ctx.fillStyle = '#111111';
+            ctx.beginPath();
+            ctx.arc(0, 0, ball.radius * 0.35, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.strokeStyle = '#111111';
+            ctx.lineWidth = 0.5;
+            for (let a = 0; a < Math.PI * 2; a += Math.PI / 2.5) {
+              ctx.beginPath();
+              ctx.moveTo(Math.cos(a) * (ball.radius * 0.35), Math.sin(a) * (ball.radius * 0.35));
+              ctx.lineTo(Math.cos(a) * ball.radius, Math.sin(a) * ball.radius);
+              ctx.stroke();
+            }
+            ctx.restore();
+            
+            // Front goalposts overlay
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(mx(goalNetLeft.x + goalNetLeft.w), goalNetLeft.y);
+            ctx.lineTo(mx(goalNetLeft.x + goalNetLeft.w), goalNetLeft.y + goalNetLeft.h);
+            ctx.moveTo(mx(goalNetRight.x), goalNetRight.y);
+            ctx.lineTo(mx(goalNetRight.x), goalNetRight.y + goalNetRight.h);
+            ctx.stroke();
+            
+            if (matchState === 'goal' && timer > 10) {
+              // Confetti and goal celebration are active. No text display to keep canvas completely text-free.
+            }
+            
+            requestAnimationFrame(tick);
+          }
+          
+          tick();
+        }
+        
+        createAnimation(canvasLeft, 'left');
+        createAnimation(canvasRight, 'right');
+      }
+      
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSoccerAnimation);
+      } else {
+        initSoccerAnimation();
+      }
+    })();
+  </script>
 </body>
 
 </html>

@@ -183,14 +183,12 @@ body {
 
 /* ================= 3. SECTIONS COMMON ================= */
 .section {
-  display: none;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .section.active {
-  display: block;
   opacity: 1;
   transform: translateY(0);
 }
@@ -544,11 +542,6 @@ body {
   box-shadow: var(--shadow-card-hover);
 }
 
-#btn-select-round1:hover {
-  border-color: rgba(16, 185, 129, 0.45);
-  box-shadow: 0 20px 45px rgba(16, 185, 129, 0.25);
-}
-
 #btn-select-round2:hover {
   border-color: rgba(212, 175, 55, 0.45);
   box-shadow: 0 20px 45px rgba(212, 175, 55, 0.25);
@@ -867,7 +860,7 @@ body {
   background: var(--overlay-bg-low);
   border: 1px solid var(--color-card-border);
   padding: 1.5rem 1.75rem;
-  border-radius: 18px;
+  border-radius: 8px;
   color: var(--color-text-primary);
   font-family: var(--font-body);
   font-size: 1.15rem; /* Larger font size for classroom visual */
@@ -887,7 +880,7 @@ body {
   justify-content: center;
   width: 36px;
   height: 36px;
-  border-radius: 10px;
+  border-radius: 4px;
   background: var(--overlay-bg-medium);
   border: 1px solid var(--color-card-border);
   font-family: var(--font-heading);
@@ -1646,4 +1639,487 @@ body.light-theme .leaderboard-row.rank-1 {
 
 body.light-theme .leaderboard-row.rank-3 {
   background: rgba(205, 127, 50, 0.06);
+}
+
+/* ================= LIGHT THEME OVERRIDES FOR TAILWIND UTILITIES ================= */
+body.light-theme {
+  background-color: var(--color-bg-dark) !important;
+  color: var(--color-text-primary) !important;
+}
+
+body.light-theme #stadium-shader-bg {
+  display: none !important;
+}
+
+body.light-theme .bg-background {
+  background-color: var(--color-bg-dark) !important;
+}
+
+body.light-theme .bg-background\/90 {
+  background-color: rgba(241, 245, 249, 0.9) !important;
+}
+
+body.light-theme .bg-background\/95 {
+  background-color: rgba(241, 245, 249, 0.95) !important;
+}
+
+body.light-theme .bg-surface {
+  background-color: var(--color-bg-light) !important;
+}
+
+body.light-theme .bg-surface-dim {
+  background-color: #e2e8f0 !important;
+}
+
+body.light-theme .bg-surface-dim\/40 {
+  background-color: rgba(226, 232, 240, 0.4) !important;
+}
+
+body.light-theme .bg-surface-container {
+  background-color: var(--color-card-bg) !important;
+}
+
+body.light-theme .bg-surface-container\/60 {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+body.light-theme .bg-surface-container-low {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+body.light-theme .bg-surface-container-low\/30 {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+body.light-theme .bg-surface-container-low\/50 {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+body.light-theme .bg-surface-container-high {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+}
+
+body.light-theme .bg-surface-container-highest {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+body.light-theme .bg-surface-container-lowest {
+  background-color: #ffffff !important;
+}
+
+body.light-theme .bg-secondary-container\/20 {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+}
+
+body.light-theme .bg-primary\/5 {
+  background-color: rgba(180, 138, 23, 0.05) !important;
+}
+
+body.light-theme .bg-primary\/10 {
+  background-color: rgba(180, 138, 23, 0.1) !important;
+}
+
+body.light-theme .bg-primary\/20 {
+  background-color: rgba(180, 138, 23, 0.2) !important;
+}
+
+body.light-theme .bg-primary-container {
+  background-color: var(--color-gold-glow) !important;
+}
+
+body.light-theme .bg-primary-container\/20 {
+  background-color: rgba(180, 138, 23, 0.1) !important;
+}
+
+body.light-theme .bg-primary {
+  background-color: var(--color-gold) !important;
+  color: #ffffff !important;
+}
+
+body.light-theme .bg-error-container\/5 {
+  background-color: rgba(185, 28, 28, 0.04) !important;
+}
+
+body.light-theme .bg-error-container\/10 {
+  background-color: rgba(185, 28, 28, 0.08) !important;
+}
+
+body.light-theme .bg-error-container\/15 {
+  background-color: rgba(185, 28, 28, 0.12) !important;
+}
+
+body.light-theme .bg-error-container\/30 {
+  background-color: rgba(185, 28, 28, 0.2) !important;
+}
+
+body.light-theme .bg-error\/10 {
+  background-color: rgba(185, 28, 28, 0.1) !important;
+}
+
+body.light-theme .bg-error\/15 {
+  background-color: rgba(185, 28, 28, 0.15) !important;
+}
+
+body.light-theme .bg-error {
+  background-color: var(--color-crimson) !important;
+  color: #ffffff !important;
+}
+
+body.light-theme .bg-white\/5 {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+}
+
+body.light-theme .hover\:bg-white\/10:hover {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+body.light-theme .hover\:bg-primary\/20:hover {
+  background-color: rgba(180, 138, 23, 0.2) !important;
+}
+
+body.light-theme .hover\:bg-primary\/80:hover {
+  background-color: var(--color-gold-hover) !important;
+}
+
+body.light-theme .hover\:bg-surface-container-high:hover {
+  background-color: rgba(15, 23, 42, 0.06) !important;
+}
+
+body.light-theme .hover\:bg-error-container\/50:hover {
+  background-color: rgba(185, 28, 28, 0.3) !important;
+}
+
+body.light-theme .hover\:bg-error\/80:hover {
+  background-color: var(--color-crimson-hover) !important;
+}
+
+body.light-theme footer {
+  border-image: linear-gradient(to right, transparent, rgba(15, 23, 42, 0.08) 20%, rgba(15, 23, 42, 0.08) 80%, transparent) 1 !important;
+}
+
+body.light-theme .stadium-vignette {
+  background: radial-gradient(circle, transparent 20%, #f1f5f9 100%) !important;
+}
+
+body.light-theme .frosted-glass {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Text color overrides */
+body.light-theme .text-on-surface {
+  color: var(--color-text-primary) !important;
+}
+
+body.light-theme .text-on-surface-variant {
+  color: var(--color-text-secondary) !important;
+}
+
+body.light-theme .text-primary {
+  color: var(--color-gold) !important;
+}
+
+body.light-theme .text-secondary {
+  color: var(--color-text-secondary) !important;
+}
+
+body.light-theme .text-error {
+  color: var(--color-crimson) !important;
+}
+
+body.light-theme .text-on-primary {
+  color: #ffffff !important;
+}
+
+body.light-theme .text-on-primary-fixed {
+  color: var(--color-gold) !important;
+}
+
+/* Border overrides */
+body.light-theme .border-white\/5 {
+  border-color: rgba(15, 23, 42, 0.06) !important;
+}
+
+body.light-theme .border-white\/10 {
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+body.light-theme .border-outline {
+  border-color: rgba(15, 23, 42, 0.15) !important;
+}
+
+body.light-theme .border-outline-variant {
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+body.light-theme .border-primary\/20 {
+  border-color: rgba(180, 138, 23, 0.2) !important;
+}
+
+body.light-theme .border-primary\/30 {
+  border-color: rgba(180, 138, 23, 0.3) !important;
+}
+
+body.light-theme .border-error\/20 {
+  border-color: rgba(185, 28, 28, 0.2) !important;
+}
+
+body.light-theme .border-error\/30 {
+  border-color: rgba(185, 28, 28, 0.3) !important;
+}
+
+/* ================= EXPLICIT BUTTON & TEXT CONTRAST FIXED OVERRIDES ================= */
+
+/* Default Dark Mode Override */
+body:not(.light-theme) .bg-primary {
+  background-color: var(--color-gold) !important;
+  color: #060b13 !important; /* Dark text on bright gold button */
+}
+
+body:not(.light-theme) .text-on-primary {
+  color: #060b13 !important; /* Force dark text on primary elements */
+}
+
+body:not(.light-theme) .bg-primary-container {
+  background-color: rgba(212, 175, 55, 0.12) !important;
+  border: 1px solid rgba(212, 175, 55, 0.3) !important;
+}
+
+body:not(.light-theme) .text-on-primary-fixed {
+  color: var(--color-gold) !important; /* Gold text on primary container */
+}
+
+/* Light Theme Override */
+body.light-theme .bg-primary {
+  background-color: var(--color-gold) !important;
+  color: #ffffff !important; /* White text on dark gold button */
+}
+
+body.light-theme .bg-primary-container {
+  background-color: rgba(180, 138, 23, 0.08) !important;
+  border: 1px solid rgba(180, 138, 23, 0.25) !important;
+}
+
+/* Disabled Button Contrast Improvements (Both Themes) */
+button:disabled,
+.disabled\:opacity-30:disabled {
+  opacity: 0.55 !important; /* Increase opacity slightly for better text visibility */
+}
+
+body.light-theme button:disabled,
+body.light-theme .disabled\:opacity-30:disabled {
+  background-color: rgba(15, 23, 42, 0.06) !important;
+  color: rgba(15, 23, 42, 0.4) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+body.light-theme button:disabled *,
+body.light-theme .disabled\:opacity-30:disabled * {
+  color: rgba(15, 23, 42, 0.4) !important;
+}
+
+body:not(.light-theme) button:disabled,
+body:not(.light-theme) .disabled\:opacity-30:disabled {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+body:not(.light-theme) button:disabled *,
+body:not(.light-theme) .disabled\:opacity-30:disabled * {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ================= TITLE TEXT CONTRAST & GRADIENTS FIXED OVERRIDES ================= */
+h1.font-display-lg.text-primary {
+  background: var(--color-gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body:not(.light-theme) h1.font-display-lg.text-primary {
+  filter: drop-shadow(0 4px 15px rgba(212, 175, 55, 0.25)) !important;
+}
+
+body.light-theme h1.font-display-lg.text-primary {
+  filter: drop-shadow(0 2px 4px rgba(180, 138, 23, 0.2)) !important;
+}
+
+/* ================= PRESENTER & REFEREE CONSOLE STYLING IMPROVEMENTS ================= */
+
+/* --- Dark Mode Consoles --- */
+.presenter-console-card {
+  border-width: 2px !important;
+  border-color: rgba(59, 130, 246, 0.45) !important; /* Premium Neon Blue */
+  background: linear-gradient(135deg, rgba(11, 21, 40, 0.96) 0%, rgba(5, 11, 20, 0.96) 100%) !important;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15) !important;
+}
+.presenter-console-card span.text-primary {
+  color: #3b82f6 !important; /* Neon Blue icon/label */
+}
+
+.referee-console-card {
+  border-width: 2px !important;
+  border-color: rgba(239, 68, 68, 0.45) !important; /* Premium Crimson Red */
+  background: linear-gradient(135deg, rgba(30, 10, 15, 0.96) 0%, rgba(12, 2, 5, 0.96) 100%) !important;
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.15) !important;
+}
+
+/* 1. Reveal Options Button (Sleek Slate Blue / Royal Blue) */
+#btn-reveal-options,
+#tiebreaker-btn-reveal-options {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  border: 1px solid #3b82f6 !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2) !important;
+}
+#btn-reveal-options:hover,
+#tiebreaker-btn-reveal-options:hover {
+  background-color: #1d4ed8 !important;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+/* 2. Reveal Answer Button (Vibrant Golden Amber) */
+#btn-reveal-answer:not(:disabled),
+#tiebreaker-btn-reveal-answer:not(:disabled) {
+  background-color: #f59e0b !important;
+  color: #060b13 !important;
+  border: 1px solid #d97706 !important;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25) !important;
+}
+#btn-reveal-answer:not(:disabled):hover,
+#tiebreaker-btn-reveal-answer:not(:disabled):hover {
+  background-color: #d97706 !important;
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.45) !important;
+  transform: translateY(-1px);
+}
+
+/* 3. Next Question Button Disabled (Both Themes) */
+#btn-next-question:disabled,
+#tiebreaker-btn-next-question:disabled {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: rgba(255, 255, 255, 0.25) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 4. Quit Quiz / Return Lobby Button (Muted outline with red accent) */
+#btn-quit-quiz,
+#tiebreaker-btn-quit-quiz {
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+  background-color: transparent !important;
+  color: #ef4444 !important;
+}
+#btn-quit-quiz:hover,
+#tiebreaker-btn-quit-quiz:hover {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.15) !important;
+}
+
+
+/* --- Light Mode Consoles --- */
+body.light-theme .presenter-console-card {
+  border-color: rgba(37, 99, 235, 0.35) !important; /* Royal Blue Border */
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08) !important;
+}
+body.light-theme .presenter-console-card span.text-primary {
+  color: #2563eb !important; /* Royal Blue icon */
+}
+
+body.light-theme .referee-console-card {
+  border-color: rgba(220, 38, 38, 0.35) !important; /* Red Border */
+  background: linear-gradient(135deg, #ffffff 0%, #fef2f2 100%) !important;
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.08) !important;
+}
+
+/* 1. Reveal Options Button (Light Theme) */
+body.light-theme #btn-reveal-options,
+body.light-theme #tiebreaker-btn-reveal-options {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  border-color: #1d4ed8 !important;
+}
+body.light-theme #btn-reveal-options:hover,
+body.light-theme #tiebreaker-btn-reveal-options:hover {
+  background-color: #1d4ed8 !important;
+}
+
+/* 2. Reveal Answer Button (Light Theme) */
+body.light-theme #btn-reveal-answer:not(:disabled),
+body.light-theme #tiebreaker-btn-reveal-answer:not(:disabled) {
+  background-color: #d97706 !important; /* Warm Amber */
+  color: #ffffff !important;
+  border-color: #b45309 !important;
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.2) !important;
+}
+body.light-theme #btn-reveal-answer:not(:disabled):hover,
+body.light-theme #tiebreaker-btn-reveal-answer:not(:disabled):hover {
+  background-color: #b45309 !important;
+}
+
+/* 3. Next Question Button Disabled (Light Theme Override) */
+body.light-theme #btn-next-question:disabled,
+body.light-theme #tiebreaker-btn-next-question:disabled {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+  color: rgba(15, 23, 42, 0.3) !important;
+  border: 1px solid rgba(15, 23, 42, 0.06) !important;
+}
+
+/* 4. Quit Quiz Button (Light Theme) */
+body.light-theme #btn-quit-quiz,
+body.light-theme #tiebreaker-btn-quit-quiz {
+  border: 1px solid rgba(220, 38, 38, 0.25) !important;
+  background-color: transparent !important;
+  color: #dc2626 !important;
+}
+body.light-theme #btn-quit-quiz:hover,
+body.light-theme #tiebreaker-btn-quit-quiz:hover {
+  background-color: rgba(220, 38, 38, 0.05) !important;
+}
+
+
+/* --- Shared Highlights & Animations --- */
+
+/* Green Glow Highlight for active 'Next Question' and 'Next Step' buttons */
+#btn-next-question:not(:disabled),
+#tiebreaker-btn-next-question:not(:disabled) {
+  background-color: var(--color-green) !important;
+  color: #ffffff !important;
+  border-color: var(--color-green-hover) !important;
+  box-shadow: 0 0 20px var(--color-green-glow) !important;
+  animation: next-pulse 2s infinite ease-in-out;
+}
+
+#btn-next-question:not(:disabled):hover,
+#tiebreaker-btn-next-question:not(:disabled):hover {
+  background-color: var(--color-green-hover) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.5) !important;
+}
+
+@keyframes next-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px var(--color-green-glow);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
+  }
+}
+
+/* Standings Graph Bar Transition and pulse-subtle */
+.chart-bar {
+  transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.75;
+  }
+}
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s infinite ease-in-out;
 }
